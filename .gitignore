@@ -398,6 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Additional files
-*.sln
 *.vcxproj
 *.filters

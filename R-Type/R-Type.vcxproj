@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Charatanuki\Documents\SDL2_image-2.8.2\include;C:\Users\Charatanuki\Documents\SDL2_ttf-2.22.0\include;C:\Users\Charatanuki\Documents\SDL2-2.30.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Charatanuki\Documents\SDL2-2.30.1\lib\x64;C:\Users\Charatanuki\Documents\SDL2_ttf-2.22.0\lib\x64;C:\Users\Charatanuki\Documents\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\tombg\Documents\SDL2_image-2.8.2\include;C:\Users\tombg\Documents\SDL2_ttf-2.22.0\include;C:\Users\tombg\Documents\SDL2-2.30.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\tombg\Documents\SDL2-2.30.1\lib\x64;C:\Users\tombg\Documents\SDL2_ttf-2.22.0\lib\x64;C:\Users\tombg\Documents\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,10 +133,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Init.C" />
+    <ClCompile Include="InputPlayer.c" />
+    <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="RenderPlayer.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFunction.h" />
+    <ClInclude Include="PlayerValues.h" />
     <ClInclude Include="ValuesHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -18,6 +18,8 @@ int main(int argc, char* argv[]) {
 
 	SDL_Renderer* renderer = createRenderer(window);
 
+	
+
 	freeAll(window, renderer);
 	return 0;
 }

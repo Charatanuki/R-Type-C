@@ -21,7 +21,7 @@ int createRenderer(SDL_Window* window) {
         SDL_DestroyWindow(window);
         SDL_Quit();
         return -1;
-    }    
+    }   mainLoop(renderer);
 
 
 

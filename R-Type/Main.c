@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 	
 	initSDL();
 
-	SDL_Window* window = SDL_CreateWindow("Pong",
+	SDL_Window* window = SDL_CreateWindow("R-type-game",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		winX, winY, SDL_WINDOW_SHOWN);
 	if (window == NULL) {

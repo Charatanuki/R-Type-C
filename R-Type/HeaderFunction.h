@@ -7,7 +7,7 @@ int initSDL();
 
 int createRenderer(SDL_Window* window);
 
-
+int popennemis();
 
 void freeAll(SDL_Window* window, SDL_Renderer* renderer);
 

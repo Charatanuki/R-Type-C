@@ -2,6 +2,9 @@
 #include <SDL.h>;
 #include "HeaderFunction.h";
 #include "ValuesHeader.h";
+#include"ennemis.h";
+#include"ennemisPop.h";
+
 
 
 int main(int argc, char* argv[]) {
@@ -17,8 +20,6 @@ int main(int argc, char* argv[]) {
 	}
 
 	SDL_Renderer* renderer = createRenderer(window);
-
-	
 
 	freeAll(window, renderer);
 	return 0;

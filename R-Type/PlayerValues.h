@@ -1,9 +1,9 @@
 #pragma once
 
-int dx = 0;
-int dy = 0;
+extern int dx;
+extern int dy;
 
-int pX = 250;
-int pY = 250;
-int pSize = 50;
+extern int pX;
+extern int pY;
+extern int pSize;
 

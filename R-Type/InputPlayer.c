@@ -1,6 +1,10 @@
 #include <SDL.h>
 #include <stdio.h>
 #include "HeaderFunction.h"
+#include "PlayerValues.h";
+#include "Projectile.h"
+
+int isFiring = 0;
 
 int up = SDLK_UP;
 int down = SDLK_DOWN;
@@ -40,11 +44,13 @@ void handleKeyDown(int* dx, int* dy, int keyDown) {
     case(SDLK_RIGHT):
         *dx = movement(right);
         break;
+    case(SDLK_SPACE):
+        isFiring = 1;
+        break;
     }
 }
 
 void handleKeyUp(int* dx, int* dy, int keyUp) {
-
     switch (keyUp) {
     case(SDLK_UP):
         *dy = 0;
@@ -58,9 +64,10 @@ void handleKeyUp(int* dx, int* dy, int keyUp) {
     case(SDLK_RIGHT):
         *dx = 0;
         break;
+    case(SDLK_SPACE):
+        isFiring = 0;
+        break;
     }
-
-
 }
 
 

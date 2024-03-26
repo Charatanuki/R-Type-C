@@ -144,7 +144,6 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
-    <ClCompile Include="Scores.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFunction.h" />

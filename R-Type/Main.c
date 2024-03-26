@@ -13,11 +13,11 @@ int main(int argc, char* argv[]) {
 		winX, winY, SDL_WINDOW_SHOWN);
 	if (window == NULL) {
 		SDL_Quit();
-		return -1;
+		return(errorHandler(2));
 	}
-
+	
 	SDL_Renderer* renderer = createRenderer(window);
-
+	
 	
 
 	freeAll(window, renderer);

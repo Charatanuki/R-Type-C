@@ -19,3 +19,8 @@ void handleKey(int* dx, int* dy);
 void handlePlayer(SDL_Renderer* renderer);
 
 int mainLoop(SDL_Renderer* renderer);
+
+
+// Error Handler
+
+int errorHandler(int errorNumber);

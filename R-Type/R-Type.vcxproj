@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Error.c" />
     <ClCompile Include="Init.C" />
     <ClCompile Include="InputPlayer.c" />
     <ClCompile Include="Loop.c" />
@@ -146,6 +147,7 @@
     <ClCompile Include="RenderPlayer.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ErrorCodes.h" />
     <ClInclude Include="HeaderFunction.h" />
     <ClInclude Include="PlayerScoreValues.h" />
     <ClInclude Include="PlayerValues.h" />

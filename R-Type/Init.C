@@ -6,7 +6,7 @@
 int initSDL() {
     // init SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        return -1;
+        return(errorHandler(1));
     }
 }
 
@@ -20,7 +20,7 @@ int createRenderer(SDL_Window* window) {
     if (renderer == NULL) {
         SDL_DestroyWindow(window);
         SDL_Quit();
-        return -1;
+        return(errorHandler(3));
     }   mainLoop(renderer);
 
 

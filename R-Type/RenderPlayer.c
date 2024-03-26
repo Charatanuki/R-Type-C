@@ -18,17 +18,14 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer) {
     // Load player image
     SDL_Surface* playerSurface = IMG_Load("spaceship.png");
     if (playerSurface == NULL) {
-        printf("Failed to load player image: %s\n", IMG_GetError());
-        return -1;
+        return(errorHandler(4));
         // Handle error
     }
     else {
         // Create texture from surface
         playerTexture = SDL_CreateTextureFromSurface(renderer, playerSurface);
         if (playerTexture == NULL) {
-            printf("Failed to create texture from player surface: %s\n", SDL_GetError());
-            return -1;
-            // Handle error
+            return(errorHandler(5));
         }
         SDL_FreeSurface(playerSurface); // Free the surface once the texture is created
         return(playerTexture);

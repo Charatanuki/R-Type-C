@@ -19,7 +19,7 @@ int mainLoop(SDL_Renderer* renderer) {
 		handlePlayer(renderer); 
 
 		if (isFiring == 1 && (currentTime - lastFiredFramed) >= FIRE_COOLDOWN) {
-			fireProjectile(pX, pY + pSize / 2, 5);
+			fireProjectile(pX + pSize, pY + pSize / 2, 5);
 			lastFiredFramed = currentTime;
 		}
 

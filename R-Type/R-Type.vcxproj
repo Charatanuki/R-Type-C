@@ -138,7 +138,6 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
-    <ClCompile Include="YourMother.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFunction.h" />

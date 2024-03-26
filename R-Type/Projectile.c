@@ -39,7 +39,6 @@ void renderProjectiles(SDL_Renderer* renderer) {
 		if (projectiles[i].active) {
 			SDL_Rect projectileRect = { projectiles[i].x, projectiles[i].y, 5, 5 };
 			SDL_RenderFillRect(renderer, &projectileRect);
-			SDL_Delay(1);
 		}
 
 	}

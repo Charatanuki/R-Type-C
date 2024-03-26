@@ -5,12 +5,15 @@
 #include "HeaderFunction.h";
 #include "Projectile.h"
 
-int pX = 250;
-int pY = 250;
-int pSize = 50;
+void initPlayer(Player *player) 
+{
+    player->pX = 250;
+    player->pY = 250;
+    player->pSize = 50;
+    player->dx = 0;
+    player->dy = 0;
+}
 
-int dx = 0;
-int dy = 0;
 
 SDL_Texture* loadTexture(SDL_Renderer* renderer) {
     SDL_Texture* playerTexture = NULL;
@@ -36,48 +39,45 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer) {
 
 }
 
-void Player(SDL_Renderer* renderer) {
+void renderPlayer(SDL_Renderer* renderer, Player *player) {
     SDL_Texture* playerTexture = loadTexture(renderer);
-    SDL_Rect player = { pX, pY, pSize, pSize };
+    SDL_Rect playerRect = { player->pX, player->pY, player->pSize, player->pSize };
     if (playerTexture != NULL) {
-        SDL_RenderCopy(renderer, playerTexture, NULL, &player);
+        SDL_RenderCopy(renderer, playerTexture, NULL, &playerRect);
     }
     else {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-        SDL_RenderFillRect(renderer, &player);
+        SDL_RenderFillRect(renderer, &playerRect);
     }
 }
 
 
-void updatePosPlayer(a, ba, win) {
-    if (pY > 0 && pY < 600 - pSize) {
-        pY += dy;
+void updatePosPlayer(Player *player) {
+    if (player->pY > 0 && player->pY < 600 - player->pSize) {
+        player->pY += player->dy;
     }
-    else if (pY <= 0 && dy == 5) {
-        pY += dy;
+    else if (player->pY <= 0 && player->dy == 5) {
+        player->pY += player->dy;
     }
-    else if (pY >= 600 - pSize && dy == -5) {
-        pY += dy;
+    else if (player->pY >= 600 - player->pSize && player->dy == -5) {
+        player->pY += player->dy;
     }
 
-    if (pX > 0 && pX < 800 - pSize) {
-        pX += dx;
+    if (player->pX > 0 && player->pX < 800 - player->pSize) {
+        player->pX += player->dx;
     }
-    else if (pX <= 0 && dx == 5) {
-        pX += dx;
+    else if (player->pX <= 0 && player->dx == 5) {
+        player->pX += player->dx;
     }
-    else if (pX >= 800 - pSize && dx == -5) {
-        pX += dx;
+    else if (player->pX >= 800 - player->pSize && player->dx == -5) {
+        player->pX += player->dx;
     }
 }
 
-void handlePlayer(SDL_Renderer* renderer) {
-    Player(renderer);
-
-    handleKey(&dx, &dy);
-
-
+void handlePlayer(SDL_Renderer* renderer, Player *player) {
+    renderPlayer(renderer, player);
+    handleKey(player);
     //updateMovement(&y, &y1, dy, dv, sizey);
-    updatePosPlayer();
+    updatePosPlayer(player);
 }
 

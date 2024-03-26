@@ -1,5 +1,6 @@
 #pragma once
 #include <stdbool.h>
+#include "PlayerValues.h"
 
 
 // Init functions
@@ -9,7 +10,8 @@ void freeAll(SDL_Window* window, SDL_Renderer* renderer);
 
 
 
-// Movement player function 
-void handleKey(int* dx, int* dy);
+// Movement player function
+void initPlayer(Player* player);
+void handleKey(Player *player);
 void handlePlayer(SDL_Renderer* renderer);
 int mainLoop(SDL_Renderer* renderer);

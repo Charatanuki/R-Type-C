@@ -25,13 +25,14 @@ int mainLoop(SDL_Renderer* renderer) {
 	unsigned int popEnnemi = 7500; // Intervalle entre chaque apparition d'ennemi en millisecondes
 	Enemy enemy;
 	initEnemy(&enemy, 750, 250, 50, 50, 1);
+	Player player;
+	initPlayer(&player);
 
 	unsigned int lastFiredFramed = 0;
 	while (1) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
-
-		handlePlayer(renderer);
+		handlePlayer(renderer, &player);
 		// Apparition des ennemis en fonction du temps
 		unsigned int currentTime = SDL_GetTicks();
 		if (currentTime - dernierEnnemi > popEnnemi) {
@@ -48,13 +49,12 @@ int mainLoop(SDL_Renderer* renderer) {
 		moveEnemies(enemies, numEnemies);
 
 		if (isFiring == 1 && (currentTime - lastFiredFramed) >= FIRE_COOLDOWN) {
-			fireProjectile(pX, pY + pSize / 2, 5);
+			fireProjectile(player.pX, player.pY + player.pSize / 2, 5);
 			lastFiredFramed = currentTime;
 		}
 
 		updateProjectiles();
 		renderProjectiles(renderer);
-
 		SDL_RenderPresent(renderer);
 		SDL_Delay(10);
 	}

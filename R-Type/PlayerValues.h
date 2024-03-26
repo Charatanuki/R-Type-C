@@ -1,9 +1,9 @@
 #pragma once
-
-extern int dx;
-extern int dy;
-
-extern int pX;
-extern int pY;
-extern int pSize;
+typedef struct {
+	int dx;
+	int dy;
+	int pX;
+	int pY;
+	int pSize;
+} Player;
 

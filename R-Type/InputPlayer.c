@@ -30,19 +30,19 @@ int movement(int dir) {
     }
 }
 
-void handleKeyDown(int* dx, int* dy, int keyDown) {
+void handleKeyDown(Player *player, int keyDown) {
     switch (keyDown) {
     case(SDLK_UP):
-        *dy = movement(up);
+        player->dy = movement(up);
         break;
     case(SDLK_DOWN):
-        *dy = movement(down);
+        player->dy = movement(down);
         break;
     case(SDLK_LEFT):
-        *dx = movement(left);
+        player->dx = movement(left);
         break;
     case(SDLK_RIGHT):
-        *dx = movement(right);
+        player->dx = movement(right);
         break;
     case(SDLK_SPACE):
         isFiring = 1;
@@ -50,19 +50,19 @@ void handleKeyDown(int* dx, int* dy, int keyDown) {
     }
 }
 
-void handleKeyUp(int* dx, int* dy, int keyUp) {
+void handleKeyUp(Player *player, int keyUp) {
     switch (keyUp) {
     case(SDLK_UP):
-        *dy = 0;
+        player->dy = 0;
         break;
     case(SDLK_DOWN):
-        *dy = 0;
+        player->dy = 0;
         break;
     case(SDLK_LEFT):
-        *dx = 0;
+        player->dx = 0;
         break;
     case(SDLK_RIGHT):
-        *dx = 0;
+        player->dx = 0;
         break;
     case(SDLK_SPACE):
         isFiring = 0;
@@ -72,15 +72,15 @@ void handleKeyUp(int* dx, int* dy, int keyUp) {
 
 
 
-void handleKey(int *dx, int *dy) {
+void handleKey(Player *player) {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
         case SDL_KEYDOWN:
-            handleKeyDown(*&dx, *&dy, event.key.keysym.sym);
+            handleKeyDown(player, event.key.keysym.sym);
             break;
         case SDL_KEYUP:
-            handleKeyUp(*&dx, *&dy, event.key.keysym.sym);
+            handleKeyUp(player, event.key.keysym.sym);
             break;
         }
     }

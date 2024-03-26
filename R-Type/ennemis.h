@@ -13,7 +13,7 @@ typedef struct {
     int speed;
 } Enemy;
 
-void initEnemies(Enemy enemies[], int numEnemies);
+void initEnemies(Enemy enemies[], int numEnemies, int width, int height);
 void moveEnemies(Enemy enemies[], int numEnemies);
 
 #endif // ENEMY_H

@@ -25,21 +25,18 @@ void popennemi(SDL_Renderer* renderer)
     Enemy enemy;
     initEnemy(&enemy, 750, 250, 50, 50, 1);
 
-    while (1) {
-        // Apparition des ennemis en fonction du temps
-        Uint32 currentTime = SDL_GetTicks();
-        if (currentTime - dernierEnnemi > popEnnemi) {
-            dernierEnnemi = currentTime;
-            if (numEnemies < MAX_ENEMIES) {
-                initEnemies(&enemies[numEnemies], 1, 800, 600); // Initialiser un nouvel ennemi
-                numEnemies++; // Augmenter le nombre d'ennemis
-            }
+    // Apparition des ennemis en fonction du temps
+    Uint32 currentTime = SDL_GetTicks();
+    if (currentTime - dernierEnnemi > popEnnemi) {
+        dernierEnnemi = currentTime;
+        if (numEnemies < MAX_ENEMIES) {
+            initEnemies(&enemies[numEnemies], 1, 800, 600); // Initialiser un nouvel ennemi
+            numEnemies++; // Augmenter le nombre d'ennemis
         }
-
-        // Dessiner les ennemis
-        drawEnemies(enemies, numEnemies, renderer);
-
-        // Déplacer les ennemis
-        moveEnemies(enemies, numEnemies);
     }
+
+    // Dessiner les ennemis
+    drawEnemies(enemies, numEnemies, renderer);
+    // Déplacer les ennemis
+     moveEnemies(enemies, numEnemies);
 }

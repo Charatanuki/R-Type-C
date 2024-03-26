@@ -15,13 +15,13 @@ void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed) //i
     enemy->speed = speed;
 }
 
-void initEnemies(Enemy enemies[], int numEnemies) //position & vitesse de l'ennemi
+void initEnemies(Enemy enemies[], int numEnemies, int width, int height) //position & vitesse de l'ennemi
 {
     srand(time(NULL)); //initialise le generateur random
 
     for (int i = 0; i < numEnemies; ++i) {
-        int x = rand() % 750 + 800;
-        int y = rand() % 500;
+        int x = rand() % width + 800;
+        int y = rand() % height;
         int width = 50;
         int height = 50;
         int speed = 1;

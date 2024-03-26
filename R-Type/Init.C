@@ -8,13 +8,15 @@ int initSDL() {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         return -1;
     }
+
+    return 0;
 }
 
 
 
 
 
-int createRenderer(SDL_Window* window) {
+SDL_Renderer* createRenderer(SDL_Window* window) {
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1,
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer == NULL) {
@@ -25,7 +27,7 @@ int createRenderer(SDL_Window* window) {
 
 
 
-    return(renderer);
+    return renderer;
 }
 
 void freeAll(SDL_Window* window, SDL_Renderer* renderer) {

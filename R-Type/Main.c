@@ -3,9 +3,6 @@
 #include "HeaderFunction.h"
 #include "ValuesHeader.h"
 #include "ennemis.h"
-#include "ennemisPop.h"
-
-
 
 int main(int argc, char* argv[]) {
 	initSDL();

@@ -136,11 +136,14 @@
     <ClCompile Include="InputPlayer.c" />
     <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
+    <ClCompile Include="YourMother.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFunction.h" />
     <ClInclude Include="PlayerValues.h" />
+    <ClInclude Include="Projectile.h" />
     <ClInclude Include="ValuesHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

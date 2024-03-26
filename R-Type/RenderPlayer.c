@@ -2,7 +2,14 @@
 #include <SDL.h>;
 #include "PlayerValues.h";
 #include "HeaderFunction.h";
+#include "Projectile.h"
 
+int pX = 250;
+int pY = 250;
+int pSize = 50;
+
+int dx = 0;
+int dy = 0;
 
 void Player(SDL_Renderer* renderer) {
     SDL_Rect rightPlayer = { pX, pY, pSize, pSize };
@@ -37,6 +44,7 @@ void handlePlayer(SDL_Renderer* renderer) {
     Player(renderer);
 
     handleKey(&dx, &dy);
+
 
     //updateMovement(&y, &y1, dy, dv, sizey);
     updatePosPlayer();

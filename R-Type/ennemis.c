@@ -4,7 +4,6 @@
 #include <time.h>
 #include "ennemis.h"
 #include "HeaderFunction.h"
-
 #define MAX_ENEMIES 50 //max ennemi souhaité
 
 void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed) //initialise l'ennemi de base

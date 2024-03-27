@@ -5,6 +5,8 @@
 #include "HeaderFunction.h"
 #include "Projectile.h"
 
+int P1_Health = 3;
+
 void initPlayer(Player *player) 
 {
     player->pX = 250;

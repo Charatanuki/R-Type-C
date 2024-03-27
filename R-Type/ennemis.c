@@ -62,10 +62,12 @@ void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //affi
 void attackPlayer(Enemy enemies[], Player *player, int numEnemies) {
     for (int i = 0; i < numEnemies; i++) {
         if (enemies[i].active) {
-            if (enemies[i].active && player->pX <= enemies[i].position.x +
-                enemies[i].position.w && player->pX >= enemies[i].position.x
+            if (enemies[i].active && 
+                player->pX <= enemies[i].position.x + enemies[i].position.w /2
+                && player->pX >= enemies[i].position.x - enemies[i].position.w /2
+                
                 && player->pY <= enemies[i].position.y + enemies[i].position.h && 
-                player->pY >= enemies[i].position.y) {
+                player->pY >= enemies[i].position.y - enemies[i].position.h) {
                 enemies[i].active = 0;
                 printf("player got hurt");
                 playerHurt(player);

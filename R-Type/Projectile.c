@@ -28,8 +28,8 @@ void updateProjectiles(Enemy* enemies) {
 	for (int i = 0; i < MAX_PROJECTILES; i++) {
 		if (projectiles[i].active) {
 			projectiles[i].x += projectiles[i].speed;
-			if (projectiles[i].x >= 800) {
-				projectiles[i].active = 0; //projectile inactif s'il sort de l'écran
+			if (projectiles[i].x >= 775) {
+				projectiles[i].active = 0; //projectile est "supprimé" s'il atteint sa zone d'attaque max
 			}
 			for (int j = 0; j < MAX_ENEMIES; j++) {
 				// vérifie si un projectile entre en contact avec un ennemy actif et désactive les deux si c'est le cas

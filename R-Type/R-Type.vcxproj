@@ -150,8 +150,10 @@
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
     <ClCompile Include="Score.c" />
+    <ClCompile Include="soundeffect.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="audio.h" />
     <ClInclude Include="ennemis.h" />
     <ClInclude Include="HeaderFunction.h" />
     <ClInclude Include="LoopInitFunc.h" />
@@ -159,6 +161,7 @@
     <ClInclude Include="PlayerValues.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ScoreValues.h" />
+    <ClInclude Include="soundeffect.h" />
     <ClInclude Include="ValuesHeader.h" />
   </ItemGroup>
   <ItemGroup>

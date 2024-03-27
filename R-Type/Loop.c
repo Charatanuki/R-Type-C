@@ -53,7 +53,7 @@ int mainLoop(SDL_Renderer* renderer) {
 			lastFiredFramed = currentTime;
 		}
 
-		updateProjectiles();
+		updateProjectiles(enemies);
 		renderProjectiles(renderer);
 		SDL_RenderPresent(renderer);
 		SDL_Delay(10);

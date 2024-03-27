@@ -7,6 +7,7 @@
 typedef struct {
     SDL_Rect position;
     int speed;
+    int active; // permet de gérer les collisions
 } Enemy;
 
 void initEnemies(Enemy enemies[], int numEnemies, int width, int height);

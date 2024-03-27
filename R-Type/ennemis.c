@@ -14,6 +14,7 @@ void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed) //i
     enemy->position.w = width;
     enemy->position.h = height;
     enemy->speed = speed;
+    enemy->active = 1;
 }
 
 void initEnemies(Enemy enemies[], int numEnemies, int width, int height) //position & vitesse de l'ennemi
@@ -31,24 +32,28 @@ void initEnemies(Enemy enemies[], int numEnemies, int width, int height) //posit
     }
 }
 
-void moveEnemies(Enemy enemies[], int numEnemies) //mouv de l'ennemi
+void moveEnemies(Enemy enemies[], int numEnemies) //mouv des ennmies actifs
 {
     for (int i = 0; i < numEnemies; ++i) {
-        enemies[i].position.x -= enemies[i].speed;
+        if (enemies[i].active) {
+            enemies[i].position.x -= enemies[i].speed;
+        }
     }
 }
 
-void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //créer des ennemis
+void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //affiche les ennemy actifs
 {
     SDL_Texture* enemyTexture = loadTexture(renderer, "./ennemy.png");
     for (int i = 0; i < numEnemies; ++i) {
-        SDL_Rect enemyRect = { enemies[i].position.x, enemies[i].position.y, enemies[i].position.w, enemies[i].position.h};
-        if (enemyTexture != NULL) {
-            SDL_RenderCopy(renderer, enemyTexture, NULL, &enemyRect);
-        }
-        else {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-            SDL_RenderFillRect(renderer, &enemyRect);
+        if (enemies[i].active) {
+            SDL_Rect enemyRect = { enemies[i].position.x, enemies[i].position.y, enemies[i].position.w, enemies[i].position.h };
+            if (enemyTexture != NULL) {
+                SDL_RenderCopy(renderer, enemyTexture, NULL, &enemyRect);
+            }
+            else {
+                SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+                SDL_RenderFillRect(renderer, &enemyRect);
+            }
         }
     }
 }

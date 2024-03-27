@@ -1,4 +1,5 @@
 #include "Projectile.h"
+#include "PlayerScoreValues.h"
 
 Projectile projectiles[MAX_PROJECTILES];
 
@@ -32,7 +33,11 @@ void updateProjectiles(Enemy* enemies) {
 					&& projectiles[i].y <= enemies[j].position.y + enemies[j].position.h && projectiles[i].y >= enemies[j].position.y) {
 					projectiles[i].active = 0;
 					enemies[j].active = 0;
-					break;
+
+					//ajout du score
+					P1_Score += 200;
+					printf("Score: %d\n", P1_Score);
+					break;	
 				}
 			}
 			if (projectiles[i].x >= 800) {

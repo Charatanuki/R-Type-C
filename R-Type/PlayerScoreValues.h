@@ -2,7 +2,7 @@
 #include <SDL_ttf.h>
 
 int P1_Lives = 3;
-int P1_Score = 0;
+extern int P1_Score = 0;
 int Hi_Score = 174500;
 // Color for the text
 SDL_Color textColor = { 255, 255, 255, 255 }; // White color

@@ -139,8 +139,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ennemis.c" />
-    <ClCompile Include="ennemisPop.c" />
     <ClCompile Include="Init.C" />
+    <ClCompile Include="InitLoop.c" />
     <ClCompile Include="InputPlayer.c" />
     <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
@@ -149,8 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ennemis.h" />
-    <ClInclude Include="ennemisPop.h" />
     <ClInclude Include="HeaderFunction.h" />
+    <ClInclude Include="LoopInitFunc.h" />
     <ClInclude Include="PlayerScoreValues.h" />
     <ClInclude Include="PlayerValues.h" />
     <ClInclude Include="Projectile.h" />

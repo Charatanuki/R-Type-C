@@ -15,4 +15,6 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
 void initPlayer(Player* player);
 void handleKey(Player *player);
 void handlePlayer(SDL_Renderer* renderer);
-int mainLoop(SDL_Renderer* renderer);
+void mainLoop(SDL_Renderer* renderer);
+
+

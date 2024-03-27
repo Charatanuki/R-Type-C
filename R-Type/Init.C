@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL_image.h>
 #include <stdio.h>
 #include "HeaderFunction.h"
 
@@ -21,8 +22,6 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
         return -1;
     }   mainLoop(renderer);
 
-
-
     return renderer;
 }
 
@@ -30,4 +29,25 @@ void freeAll(SDL_Window* window, SDL_Renderer* renderer) {
     SDL_DestroyRenderer(*&renderer);
     SDL_DestroyWindow(*&window);
     SDL_Quit();
+}
+
+SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path) {
+    SDL_Texture* texture = NULL;
+
+    // Load player image
+    SDL_Surface* surface = IMG_Load(path);
+    if (surface == NULL) {
+        printf("Failed to load %s: %s\n", path, IMG_GetError());
+        return -1;
+        // Handle error
+    }
+    // Create texture from surface
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if (texture == NULL) {
+        printf("Failed to create texture from %s surface: %s\n", path, SDL_GetError());
+        return -1;
+        // Handle error
+    }
+    SDL_FreeSurface(surface); // Free the surface once the texture is created
+    return(texture);
 }

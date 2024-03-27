@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "ennemis.h"
+#include "HeaderFunction.h"
 
 #define MAX_ENEMIES 50 //max ennemi souhaité
 
@@ -39,8 +40,15 @@ void moveEnemies(Enemy enemies[], int numEnemies) //mouv de l'ennemi
 
 void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //créer des ennemis
 {
+    SDL_Texture* enemyTexture = loadTexture(renderer, "./ennemy.png");
     for (int i = 0; i < numEnemies; ++i) {
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-        SDL_RenderFillRect(renderer, &(enemies[i].position));
+        SDL_Rect enemyRect = { enemies[i].position.x, enemies[i].position.y, enemies[i].position.w, enemies[i].position.h};
+        if (enemyTexture != NULL) {
+            SDL_RenderCopy(renderer, enemyTexture, NULL, &enemyRect);
+        }
+        else {
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+            SDL_RenderFillRect(renderer, &enemyRect);
+        }
     }
 }

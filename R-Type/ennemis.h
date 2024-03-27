@@ -6,10 +6,6 @@
 
 typedef struct {
     SDL_Rect position;
-    int x;
-    int y;
-    int width;
-    int height;
     int speed;
 } Enemy;
 

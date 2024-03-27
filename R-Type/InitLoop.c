@@ -30,7 +30,7 @@ void handleEnemySpawn(unsigned int* lastEnemyTime, int* numEnemies, Enemy enemie
 void handlePlayerFire(Player* player, unsigned int* lastFiredFrame) {
     unsigned int currentTime = SDL_GetTicks();
     if (isFiring == 1 && (currentTime - *lastFiredFrame) >= FIRE_COOLDOWN) {
-        fireProjectile(player->pX, player->pY + player->pSize / 2, 5);
+        fireProjectile(player->pX + player->pSize, player->pY + player->pSize / 2, 5);
         *lastFiredFrame = currentTime;
     }
 }

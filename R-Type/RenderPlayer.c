@@ -56,3 +56,8 @@ void handlePlayer(SDL_Renderer* renderer, Player *player) {
     updatePosPlayer(player);
 }
 
+void playerHurt(Player *player) {
+    player->pX = 250;
+    player->pY = 250;
+    SDL_Delay(3);
+}

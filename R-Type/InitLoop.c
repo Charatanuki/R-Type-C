@@ -5,6 +5,7 @@
 #include "Projectile.h"
 #include "PlayerValues.h"
 #include "ennemis.h"
+#include "AttackFunctions.h"
 
 #define FIRE_COOLDOWN 100 
 
@@ -39,6 +40,7 @@ void updateGameObjects(Enemy enemies[], int numEnemies, Player* player, SDL_Rend
     handlePlayer(renderer, player);
     drawEnemies(enemies, numEnemies, renderer);
     moveEnemies(enemies, numEnemies);
+    attackPlayer(enemies, player, numEnemies);
     updateProjectiles(enemies);
 }
 

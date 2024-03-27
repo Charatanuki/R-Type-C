@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AttackFunctions.h" />
     <ClCompile Include="ennemis.c" />
     <ClCompile Include="Init.C" />
     <ClCompile Include="InitLoop.c" />

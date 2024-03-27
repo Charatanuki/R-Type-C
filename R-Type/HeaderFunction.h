@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <SDL_ttf.h>
 #include "PlayerValues.h"
+#include "Background.h"
 
 
 // Init functions
@@ -22,3 +23,9 @@ void mainLoop(SDL_Renderer* renderer);
 int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer);
 
 int levelChange();
+
+
+// Background
+void initBackground(Background* background, int backgroundId);
+void handleBackground(SDL_Renderer* renderer);
+void initBackground(Background* background, int backgroundId);

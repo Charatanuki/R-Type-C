@@ -7,12 +7,14 @@
 #include "PlayerValues.h"
 #include "ennemis.h"
 #include "LoopInitFunc.h"
+#include "Background.h"
 
 
 void mainLoop(SDL_Renderer* renderer) {
     Enemy enemies[MAX_ENEMIES];
     int numEnemies;
     Player player;
+    Background background;
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
     if (font == NULL) {
         printf("Font not loaded");
@@ -22,8 +24,8 @@ void mainLoop(SDL_Renderer* renderer) {
     unsigned int lastEnemyTime = SDL_GetTicks();
     unsigned int lastFiredFrame = 0;
 
-    initializeGameObjects(enemies, &numEnemies, &player);
-
+    initializeGameObjects(enemies, &numEnemies, &player, &background);
+    printf("x%d    y%d", background.bX, background.bY);
     while (1) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
@@ -32,7 +34,7 @@ void mainLoop(SDL_Renderer* renderer) {
 
         handleEnemySpawn(&lastEnemyTime, &numEnemies, enemies);
         handlePlayerFire(&player, &lastFiredFrame);
-        updateGameObjects(enemies, numEnemies, &player, renderer);
+        updateGameObjects(enemies, numEnemies, &player, &background, renderer);
         renderGameObjects(renderer);
 
 

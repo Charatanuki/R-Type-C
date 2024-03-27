@@ -9,7 +9,8 @@
 
 #define FIRE_COOLDOWN 100 
 
-void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player) {
+void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Background* background) {
+    initBackground(background, 0);
     initializeProjectiles();
     srand(time(NULL));
     *numEnemies = 10;
@@ -36,7 +37,8 @@ void handlePlayerFire(Player* player, unsigned int* lastFiredFrame) {
     }
 }
 
-void updateGameObjects(Enemy enemies[], int numEnemies, Player* player, SDL_Renderer* renderer) {
+void updateGameObjects(Enemy enemies[], int numEnemies, Player* player, Background* background, SDL_Renderer* renderer) {
+    handleBackground(renderer, background);
     handlePlayer(renderer, player);
     drawEnemies(enemies, numEnemies, renderer);
     moveEnemies(enemies, numEnemies);

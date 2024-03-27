@@ -68,7 +68,7 @@ void attackPlayer(Enemy enemies[], Player *player, int numEnemies) {
                 && player->pY <= enemies[i].position.y + enemies[i].position.h && 
                 player->pY >= enemies[i].position.y - enemies[i].position.h) {
                 enemies[i].active = 0;
-                printf("player got hurt");
+                printf("player got hurt\n");
                 playerHurt(player);
             }
         }

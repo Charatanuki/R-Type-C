@@ -6,9 +6,6 @@
 
 //Permet de manipuler la musique
 Mix_Music* music = NULL;
-//Permet de manipuler les sounds effects
-Mix_Chunk* boom = NULL;
-Mix_Chunk* pew = NULL;
 
 //msg d'erreur pour l'init de l'audio
 void initAudio() {
@@ -28,7 +25,10 @@ void playbgmusic() {
         Mix_PlayMusic(music, -1);
     }
 }
-
 void stopbgmusic() {
     Mix_HaltMusic();
+}
+void cleanupAudio() {
+    Mix_FreeMusic(music);
+    Mix_CloseAudio();
 }

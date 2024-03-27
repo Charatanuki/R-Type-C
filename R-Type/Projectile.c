@@ -1,6 +1,8 @@
 #include "Projectile.h"
 #include "PlayerScoreValues.h"
 
+int P1_Score = 0;
+
 Projectile projectiles[MAX_PROJECTILES];
 
 void initializeProjectiles() {

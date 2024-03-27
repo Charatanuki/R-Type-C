@@ -52,3 +52,5 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path) {
     SDL_FreeSurface(surface); // Free the surface once the texture is created
     return(texture);
 }
+
+

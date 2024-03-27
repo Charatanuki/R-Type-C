@@ -147,6 +147,7 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
+    <ClCompile Include="Score.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ennemis.h" />
@@ -155,12 +156,14 @@
     <ClInclude Include="PlayerScoreValues.h" />
     <ClInclude Include="PlayerValues.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ScoreValues.h" />
     <ClInclude Include="ValuesHeader.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="sans.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="ennemy.png" />
     <Image Include="spaceship.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include "HeaderFunction.h"
 #include "ValuesHeader.h"
 #include "ennemis.h"
@@ -9,6 +10,11 @@ int main(int argc, char* argv[]) {
 	SDL_Window* window = SDL_CreateWindow("R-type-game",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		winX, winY, SDL_WINDOW_SHOWN);
+
+	if (TTF_Init() == -1) {
+		printf("Failed to initialize TTF");
+		return -1;
+	}
 
 	if (window == NULL) {
 		SDL_Quit();

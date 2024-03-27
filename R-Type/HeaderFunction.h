@@ -1,5 +1,6 @@
 #pragma once
 #include <stdbool.h>
+#include <SDL_ttf.h>
 #include "PlayerValues.h"
 
 
@@ -18,3 +19,4 @@ void handlePlayer(SDL_Renderer* renderer);
 void mainLoop(SDL_Renderer* renderer);
 
 
+int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer);

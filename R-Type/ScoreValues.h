@@ -4,6 +4,8 @@
 
 extern int P1_Score;
 
+extern int level;
+
 
 // Color for the text
 SDL_Color textColor = { 255, 255, 255, 255 }; // White color

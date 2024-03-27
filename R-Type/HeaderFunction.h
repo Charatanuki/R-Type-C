@@ -20,3 +20,5 @@ void mainLoop(SDL_Renderer* renderer);
 
 
 int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer);
+
+int levelChange();

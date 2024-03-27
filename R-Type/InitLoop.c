@@ -42,6 +42,7 @@ void updateGameObjects(Enemy enemies[], int numEnemies, Player* player, SDL_Rend
     moveEnemies(enemies, numEnemies);
     attackPlayer(enemies, player, numEnemies);
     updateProjectiles(enemies);
+    levelChange();
 }
 
 void renderGameObjects(SDL_Renderer* renderer) {

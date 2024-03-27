@@ -28,13 +28,16 @@ void updateProjectiles(Enemy* enemies) {
 	for (int i = 0; i < MAX_PROJECTILES; i++) {
 		if (projectiles[i].active) {
 			projectiles[i].x += projectiles[i].speed;
+			if (projectiles[i].x >= 800) {
+				projectiles[i].active = 0; //projectile inactif s'il sort de l'écran
+			}
 			for (int j = 0; j < MAX_ENEMIES; j++) {
 				// vérifie si un projectile entre en contact avec un ennemy actif et désactive les deux si c'est le cas
 				if (enemies[j].active && projectiles[i].x <= enemies[j].position.x + 
 					enemies[j].position.w && projectiles[i].x >= enemies[j].position.x
 					&& projectiles[i].y <= enemies[j].position.y + enemies[j].position.h && projectiles[i].y >= enemies[j].position.y) {
-					projectiles[i].active = 0;
-					enemies[j].active = 0;
+					projectiles[i].active = 0;//projectile inactif s'il touche un ennemi
+					enemies[j].active = 0;//ennemi inactif s'il se fait détruire
 
 					//ajout du score
 					P1_Score += 200;

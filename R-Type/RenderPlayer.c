@@ -61,5 +61,6 @@ void handlePlayer(SDL_Renderer* renderer, Player *player) {
 void playerHurt(Player *player) {
     player->pX = 250;
     player->pY = 250;
+    P1_Health -= 1;
     SDL_Delay(3);
 }

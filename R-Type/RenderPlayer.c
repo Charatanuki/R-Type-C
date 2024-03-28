@@ -7,14 +7,7 @@
 
 int P1_Health = 3;
 
-void initPlayer(Player *player) 
-{
-    player->pX = 250;
-    player->pY = 250;
-    player->pSize = 50;
-    player->dx = 0;
-    player->dy = 0;
-}
+
 
 void renderPlayer(SDL_Renderer* renderer, Player *player) {
     SDL_Texture* playerTexture = loadTexture(renderer, "./spaceship.png");
@@ -51,16 +44,25 @@ void updatePosPlayer(Player *player) {
     }
 }
 
+void playerImmortality(Player* player) {
+    if (player->immortal && SDL_GetTicks() - player->hurtTime >= 3000) {
+        player->immortal = 0;
+    }
+}
+
 void handlePlayer(SDL_Renderer* renderer, Player *player) {
     renderPlayer(renderer, player);
     handleKey(player);
     //updateMovement(&y, &y1, dy, dv, sizey);
     updatePosPlayer(player);
+    playerImmortality(player);
 }
 
 void playerHurt(Player *player) {
     player->pX = 250;
     player->pY = 250;
     P1_Health -= 1;
-    SDL_Delay(3);
+    player->immortal = 1;
+    player->hurtTime = SDL_GetTicks();
 }
+

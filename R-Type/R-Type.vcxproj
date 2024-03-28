@@ -143,6 +143,7 @@
     <ClCompile Include="ennemis.c" />
     <ClCompile Include="Init.C" />
     <ClCompile Include="InitLoop.c" />
+    <ClCompile Include="InitPlayer.c" />
     <ClCompile Include="InputPlayer.c" />
     <ClCompile Include="Background.c" />
     <ClCompile Include="isAlive.c" />

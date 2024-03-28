@@ -1,6 +1,12 @@
 #pragma once
 #include <SDL.h>
 
+SDL_Texture* BgTexture;
+SDL_Texture* StartBtnTexture;
+SDL_Texture* OptionBtnTexture;
+SDL_Texture* QuitBtnTexture;
+
+
 // Fonction pour afficher le menu principal
 void Menu(SDL_Renderer* renderer,
     SDL_Texture* BgTexture,

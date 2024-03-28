@@ -5,11 +5,7 @@
 #include "menu.h"
 
 
-void Menu(SDL_Renderer* renderer,
-    SDL_Texture* BgTexture,
-    SDL_Texture* StartBtnTexture,
-    SDL_Texture* OptionBtnTexture,
-    SDL_Texture* QuitBtnTexture)
+void Menu(SDL_Renderer* renderer)
 {
     // Affiche le fond du menu principal
     SDL_RenderCopy(renderer, BgTexture, NULL, NULL);
@@ -44,16 +40,44 @@ bool isInsideButton(SDL_Rect btnRect, int x, int y) {
         y >= btnRect.y && y <= btnRect.y + btnRect.h);
 }
 
-int handleMainMenu(SDL_Renderer* renderer) {
+int mouseClick(SDL_Event event, bool running) {
+    if (event.button.button == SDL_BUTTON_LEFT) {
+        int x = event.button.x;
+        int y = event.button.y;
+        SDL_Rect startBtnRect;
+        SDL_QueryTexture(StartBtnTexture, NULL, NULL, &startBtnRect.w, &startBtnRect.h);
+        startBtnRect.x = (800 - startBtnRect.w) / 2;
+        startBtnRect.y = (600 - startBtnRect.h) / 3;
+        SDL_Rect quitBtnRect;
+        SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
+        quitBtnRect.x = (800 - quitBtnRect.w) / 2;
+        quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
+        if (isInsideButton(startBtnRect, x, y)) {
+            running = false; // Arrête le menu principal
+            // Retourne PLAYING pour démarrer le jeu
+            return 1;
+        }
+        else if (isInsideButton(quitBtnRect, x, y)) {
+            running = false; // Quitte le jeu
+            return 2;
+        }
+    }
+}
+
+void initMenuTextures(SDL_Renderer* renderer) {
     // Charge les images du fond et du bouton "Start"
-    SDL_Texture* BgTexture = loadTexture("./start_screen.png", renderer);
-    SDL_Texture* StartBtnTexture = loadTexture("./btn/play_btn.png", renderer);
-    SDL_Texture* OptionBtnTexture = loadTexture("./btn/optn_btn.png", renderer);
-    SDL_Texture* QuitBtnTexture = loadTexture("./btn/quit_btn.png", renderer);
+    BgTexture = loadTexture("./start_screen.png", renderer);
+    StartBtnTexture = loadTexture("./btn/play_btn.png", renderer);
+    OptionBtnTexture = loadTexture("./btn/optn_btn.png", renderer);
+    QuitBtnTexture = loadTexture("./btn/quit_btn.png", renderer);
+}
+
+int handleMainMenu(SDL_Renderer* renderer) {
+    initMenuTextures(renderer);
 
     if (!BgTexture || !StartBtnTexture || !QuitBtnTexture) {
         printf("Erreur lors du chargement des images du menu principal.\n");
-        return 0;
+        return -1;
     }
 
     SDL_Event event;
@@ -65,27 +89,7 @@ int handleMainMenu(SDL_Renderer* renderer) {
                 running = false;
                 break;
             case SDL_MOUSEBUTTONDOWN:
-                if (event.button.button == SDL_BUTTON_LEFT) {
-                    int x = event.button.x;
-                    int y = event.button.y;
-                    SDL_Rect startBtnRect;
-                    SDL_QueryTexture(StartBtnTexture, NULL, NULL, &startBtnRect.w, &startBtnRect.h);
-                    startBtnRect.x = (800 - startBtnRect.w) / 2;
-                    startBtnRect.y = (600 - startBtnRect.h) / 3;
-                    SDL_Rect quitBtnRect;
-                    SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
-                    quitBtnRect.x = (800 - quitBtnRect.w) / 2;
-                    quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
-                    if (isInsideButton(startBtnRect, x, y)) {
-                        running = false; // Arrête le menu principal
-                        // Retourne PLAYING pour démarrer le jeu
-                        return 1;
-                    }
-                    else if (isInsideButton(quitBtnRect, x, y)) {
-                        running = false; // Quitte le jeu
-                        return 2;
-                    }
-                }
+                return(mouseClick(event, running));
                 break;
             }
         }
@@ -94,7 +98,6 @@ int handleMainMenu(SDL_Renderer* renderer) {
             StartBtnTexture, OptionBtnTexture, QuitBtnTexture);
     }
 
-    // Libère la mémoire utilisée par les textures
     SDL_DestroyTexture(BgTexture);
     SDL_DestroyTexture(StartBtnTexture);
     SDL_DestroyTexture(QuitBtnTexture);

@@ -29,3 +29,6 @@ void levelChange();
 void initBackground(Background* background, int backgroundId);
 void handleBackground(SDL_Renderer* renderer);
 void initBackground(Background* background, int backgroundId);
+
+// Menu
+int handleMainMenu(SDL_Renderer* renderer);

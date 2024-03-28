@@ -20,17 +20,14 @@ void mainLoop(SDL_Renderer* renderer) {
     Player player;
     Background background;
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
-    if (font == NULL) {
-        printf("Font not loaded");
-        return -1;
-    }
+    isAlive = true;
+
     initializeExplosionTexture(renderer);
     initializeExplosions();
     unsigned int lastEnemyTime = SDL_GetTicks();
     unsigned int lastFiredFrame = 0;
 
     initializeGameObjects(enemies, &numEnemies, &player, &background);
-    printf("x%d    y%d", background.bX, background.bY);
     while (1) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
@@ -46,6 +43,10 @@ void mainLoop(SDL_Renderer* renderer) {
         renderGameObjects(renderer);
         isAliveCheck(isAlive);
         SDL_Delay(10);
+
+        if (isAlive == false) {
+            break;
+        }
     }
     freeExplosionTexture();
 }

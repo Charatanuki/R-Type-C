@@ -11,3 +11,4 @@ typedef struct {
 	Uint32 hurtTime;
 } Player;
 
+int P1_Health;

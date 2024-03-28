@@ -23,9 +23,12 @@ int main(int argc, char* argv[]) {
 		return -1;
 	}
 
+	initAudio();
+	loadbgmusic();
 	loadshootsound();
 	loaddestroysound();
 	SDL_Renderer* renderer = createRenderer(window);
+	cleanupAudio();
 	cleanupSoundeffect();
 	freeAll(window, renderer);
 

@@ -11,7 +11,6 @@ Mix_Chunk* pew = NULL; //tirs
 
 
 void loadshootsound() {
-    initAudio();
     pew = Mix_LoadWAV("./pew.wav");
     if (pew == NULL) {
         printf("Failed to load shoot sound! SDL_mixer Error: %s\n", Mix_GetError());
@@ -31,7 +30,7 @@ void loaddestroysound() {
 }
 void playdestroysound() {
     if (boom != NULL) {
-        Mix_VolumeChunk(boom, 64);
+        Mix_VolumeChunk(boom, 96);
         Mix_PlayChannel(-1, boom, 0);
     }
 }

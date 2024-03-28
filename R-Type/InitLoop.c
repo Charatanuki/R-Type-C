@@ -11,6 +11,7 @@
 #define FIRE_COOLDOWN 100 
 
 void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Background* background) {
+    playbgmusic();
     initBackground(background, 0);
     initializeProjectiles();
     srand(time(NULL));

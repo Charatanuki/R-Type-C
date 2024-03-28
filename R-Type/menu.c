@@ -68,7 +68,6 @@ int mouseClick(SDL_Event event, bool running) {
 
         if (isInsideButton(startBtnRect, x, y)) {
             running = false; // Arrête le menu principal
-            // Retourne PLAYING pour démarrer le jeu
             return PLAY;
         }
         else if (isInsideButton(quitBtnRect, x, y)) {

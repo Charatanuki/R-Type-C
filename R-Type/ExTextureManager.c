@@ -20,11 +20,12 @@ SDL_Texture* loadExplosionTexture(SDL_Renderer* renderer) {
     return texture;
 }
 
-void initializeExplosionTexture(SDL_Renderer* renderer) {
+int initializeExplosionTexture(SDL_Renderer* renderer) {
     explosionTexture = loadExplosionTexture(renderer);
     if (!explosionTexture) {
-        // Handle error loading texture
-        // You may want to exit the program or use a default texture
+        printf("Failed to load explosion texture.");
+        SDL_Quit();
+        return -1;
     }
 }
 

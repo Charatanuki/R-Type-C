@@ -1,6 +1,11 @@
 #pragma once
 #include <SDL.h>
 
+SDL_Texture* BgTexture;
+SDL_Texture* StartBtnTexture;
+SDL_Texture* OptionBtnTexture;
+SDL_Texture* QuitBtnTexture;
+
 enum game {
     MENU,
     PLAY,

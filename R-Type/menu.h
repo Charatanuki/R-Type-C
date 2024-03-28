@@ -1,6 +1,13 @@
 #pragma once
 #include <SDL.h>
 
+enum game {
+    MENU,
+    PLAY,
+    OPTION,
+    QUIT
+};
+
 // Fonction pour afficher le menu principal
 void Menu(SDL_Renderer* renderer,
     SDL_Texture* BgTexture,

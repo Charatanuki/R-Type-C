@@ -9,6 +9,7 @@
 #include "LoopInitFunc.h"
 #include "Background.h"
 #include "isAlive.h"
+#include "menu.h"
 
 
 void mainLoop(SDL_Renderer* renderer) {
@@ -30,7 +31,7 @@ void mainLoop(SDL_Renderer* renderer) {
     while (1) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
-
+        
         handleEnemySpawn(&lastEnemyTime, &numEnemies, enemies);
         handlePlayerFire(&player, &lastFiredFrame);
         updateGameObjects(enemies, numEnemies, &player, &background, renderer);

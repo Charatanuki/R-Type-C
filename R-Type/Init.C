@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include "HeaderFunction.h"
+#include "menu.h"
 
 
 int initSDL() {
@@ -19,9 +20,19 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
     if (renderer == NULL) {
         SDL_DestroyWindow(window);
         SDL_Quit();
-        return -1;
-    }   mainLoop(renderer);
-
+        return NULL;
+    }
+    int menuResult = handleMainMenu(renderer);
+    switch (menuResult)
+    {
+    case PLAY:
+        mainLoop(renderer);
+        break;
+    case OPTION:
+        break;
+    default:
+        break;
+    }
     return renderer;
 }
 
@@ -39,18 +50,18 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path) {
     SDL_Surface* surface = IMG_Load(path);
     if (surface == NULL) {
         printf("Failed to load %s: %s\n", path, IMG_GetError());
-        return -1;
+        return NULL;
         // Handle error
     }
     // Create texture from surface
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if (texture == NULL) {
         printf("Failed to create texture from %s surface: %s\n", path, SDL_GetError());
-        return -1;
+        return NULL;
         // Handle error
     }
     SDL_FreeSurface(surface); // Free the surface once the texture is created
-    return(texture);
+    return texture;
 }
 
 

@@ -17,7 +17,7 @@ void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Bac
     initBackground(background, 0);
     initializeProjectiles();
     srand(time(NULL));
-    *numEnemies = 10;
+    *numEnemies = 20;
     initEnemies(enemies, *numEnemies, 800, 500, newSpeed);
     initPlayer(player);
 }

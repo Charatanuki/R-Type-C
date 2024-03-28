@@ -6,29 +6,10 @@
 #include "Background.h"
 #include "HeaderFunction.h"
 
-#define SCORE_REQ 3500 
+
 #define MAX_BACKGROUND_TEXTURES 5
 
-int level = 1;
-int nextLevel = 2;
-int levelCheck = 0;
 int currentBackgroundId = -1;
-
-void levelChange(int* numEnemies, Enemy enemies[], Background* background) {
-	if (P1_Score >= levelCheck + SCORE_REQ && level != nextLevel) {
-		level ++;
-        nextLevel++;
-
-        *numEnemies += 10;
-        newSpeed += 1;
-
-        levelCheck = P1_Score;
-        background->backgroundId++;
-        initEnemies(enemies, *numEnemies, 800, 500, newSpeed);
-		printf("Level Up!\n");
-        printf("%d", *numEnemies);
-	}
-}
 
 SDL_Texture* currentBackgroundTexture = NULL;
 

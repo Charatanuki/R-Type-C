@@ -145,6 +145,7 @@
     <ClCompile Include="InitLoop.c" />
     <ClCompile Include="InputPlayer.c" />
     <ClCompile Include="Background.c" />
+    <ClCompile Include="Level.c" />
     <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Projectile.c" />

@@ -27,6 +27,9 @@ void handleEnemySpawn(unsigned int* lastEnemyTime, int* numEnemies, Enemy enemie
     unsigned int currentTime = SDL_GetTicks();
     if (currentTime - *lastEnemyTime > 7500) {
         *lastEnemyTime = currentTime;
+        if (*numEnemies >= MAX_ENEMIES) {
+            *numEnemies = 50;
+        }
         if (*numEnemies < MAX_ENEMIES) {
             initEnemies(&enemies[*numEnemies], 1, 800, 600);
             (*numEnemies)++;

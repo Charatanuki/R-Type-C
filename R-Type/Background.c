@@ -7,7 +7,7 @@
 #include "HeaderFunction.h"
 
 
-#define MAX_BACKGROUND_TEXTURES 5
+#define MAX_BACKGROUND_TEXTURES 4
 
 int currentBackgroundId = -1;
 
@@ -15,6 +15,9 @@ SDL_Texture* currentBackgroundTexture = NULL;
 
 
 void loadBackgroundTexture(SDL_Renderer* renderer, int backgroundId) {
+    if (backgroundId > MAX_BACKGROUND_TEXTURES) {
+        backgroundId = 4;
+    }
     if (backgroundId != currentBackgroundId) {
         // Free the previously loaded texture, if any
         if (currentBackgroundTexture != NULL) {
@@ -22,18 +25,12 @@ void loadBackgroundTexture(SDL_Renderer* renderer, int backgroundId) {
             currentBackgroundTexture = NULL;
         }
 
-        int bgIdToLoad;
-        // Load the new background texture
-        if (backgroundId >= MAX_BACKGROUND_TEXTURES) {
-            bgIdToLoad = MAX_BACKGROUND_TEXTURES;
-        }
-        else {
-            bgIdToLoad = backgroundId;
-        }
+
         char bgPath[64];
+
         sprintf_s(bgPath, sizeof(bgPath), "./bg/bg%d.png", backgroundId);
-        currentBackgroundTexture = loadTexture(renderer, bgPath);
         currentBackgroundId = backgroundId;
+        currentBackgroundTexture = loadTexture(renderer, bgPath);
     }
 }
 

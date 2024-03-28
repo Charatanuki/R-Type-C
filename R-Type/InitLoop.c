@@ -11,6 +11,7 @@
 #define FIRE_COOLDOWN 100
 
 int newSpeed = 1;
+int enemeyHealth = 1;
 
 void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Background* background) {
     playbgmusic();
@@ -18,7 +19,7 @@ void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Bac
     initializeProjectiles();
     srand(time(NULL));
     *numEnemies = 20;
-    initEnemies(enemies, *numEnemies, 800, 500, newSpeed);
+    initEnemies(enemies, *numEnemies, 800, 500, newSpeed, enemeyHealth);
     initPlayer(player);
 }
 

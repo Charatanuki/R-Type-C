@@ -39,11 +39,14 @@ void updateProjectiles(Enemy* enemies) {
 					enemies[j].position.w && projectiles[i].x >= enemies[j].position.x
 					&& projectiles[i].y <= enemies[j].position.y + enemies[j].position.h && projectiles[i].y >= enemies[j].position.y) {
 					projectiles[i].active = 0;//projectile inactif s'il touche un ennemi
-					enemies[j].active = 0;//ennemi inactif s'il se fait détruire
-					playdestroysound();
-					//ajout du score
-					P1_Score += 200;
-					printf("Score: %d\n", P1_Score);
+					enemies[j].health--;
+					if (enemies[j].health <= 0) {
+						enemies[j].active = 0;//ennemi inactif s'il se fait détruire
+						playdestroysound();
+						//ajout du score
+						P1_Score += 200;
+						printf("Score: %d\n", P1_Score);
+					}
 					break;	
 				}
 			}

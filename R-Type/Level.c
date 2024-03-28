@@ -18,10 +18,11 @@ void levelChange(int* numEnemies, Enemy enemies[], Background* background) {
 
         *numEnemies += 10;
         newSpeed += 1;
+        enemeyHealth += 1;
 
         levelCheck = P1_Score;
         background->backgroundId++;
-        initEnemies(enemies, *numEnemies, 800, 500, newSpeed);
+        initEnemies(enemies, *numEnemies, 800, 500, newSpeed, enemeyHealth);
         printf("Level Up!\n");
         printf("%d", *numEnemies);
     }

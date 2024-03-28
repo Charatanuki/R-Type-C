@@ -6,7 +6,7 @@
 #include "HeaderFunction.h"
 #define MAX_ENEMIES 100 //max ennemi souhaité
 
-void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed) //initialise l'ennemi de base
+void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed, int enemeyHealth) //initialise l'ennemi de base
 {
     enemy->position.x = x;
     enemy->position.y = y;
@@ -14,9 +14,10 @@ void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed) //i
     enemy->position.h = height;
     enemy->speed = speed;
     enemy->active = 1;
+    enemy->health = enemeyHealth;
 }
 
-void initEnemies(Enemy enemies[], int numEnemies, int width, int height, int newSpeed) //position & vitesse de l'ennemi
+void initEnemies(Enemy enemies[], int numEnemies, int width, int height, int newSpeed, int enemeyHealth) //position & vitesse de l'ennemi
 {
     srand(time(NULL)); //initialise le generateur random
 
@@ -26,8 +27,9 @@ void initEnemies(Enemy enemies[], int numEnemies, int width, int height, int new
         int width = 50;
         int height = 50;
         int speed = newSpeed;
+        int health = enemeyHealth;
 
-        initEnemy(&enemies[i], x, y, width, height, speed);
+        initEnemy(&enemies[i], x, y, width, height, speed, health);
     }
 }
 

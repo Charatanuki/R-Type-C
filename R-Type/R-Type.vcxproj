@@ -148,6 +148,7 @@
     <ClCompile Include="Level.c" />
     <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="menu.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
     <ClCompile Include="Score.c" />
@@ -159,6 +160,7 @@
     <ClInclude Include="ennemis.h" />
     <ClInclude Include="HeaderFunction.h" />
     <ClInclude Include="LoopInitFunc.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="PlayerScoreValues.h" />
     <ClInclude Include="PlayerValues.h" />
     <ClInclude Include="Projectile.h" />

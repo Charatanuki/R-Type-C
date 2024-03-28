@@ -6,7 +6,6 @@
 #include "ennemis.h"
 #include "soundeffect.h"
 #include "audio.h"
-#include "menu.h"
 
 int main(int argc, char* argv[]) {
 	initSDL();	

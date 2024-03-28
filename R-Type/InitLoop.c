@@ -8,7 +8,9 @@
 #include "AttackFunctions.h"
 #include "audio.h"
 
-#define FIRE_COOLDOWN 100 
+#define FIRE_COOLDOWN 100
+
+int newSpeed = 1;
 
 void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Background* background) {
     playbgmusic();
@@ -16,7 +18,7 @@ void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Bac
     initializeProjectiles();
     srand(time(NULL));
     *numEnemies = 10;
-    initEnemies(enemies, *numEnemies, 800, 500);
+    initEnemies(enemies, *numEnemies, 800, 500, newSpeed);
     initPlayer(player);
 }
 
@@ -46,7 +48,6 @@ void updateGameObjects(Enemy enemies[], int numEnemies, Player* player, Backgrou
     moveEnemies(enemies, numEnemies);
     attackPlayer(enemies, player, numEnemies);
     updateProjectiles(enemies);
-    levelChange();
 }
 
 void renderGameObjects(SDL_Renderer* renderer) {

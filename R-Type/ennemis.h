@@ -13,3 +13,4 @@ void initEnemies(Enemy enemies[], int numEnemies, int width, int height);
 void moveEnemies(Enemy enemies[], int numEnemies);
 
 
+extern int newSpeed;

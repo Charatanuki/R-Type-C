@@ -1,7 +1,7 @@
 #pragma once
 
 
-#define MAX_ENEMIES 50 // Définissez le nombre maximum d'ennemis que vous voulez afficher
+#define MAX_ENEMIES 100 // Définissez le nombre maximum d'ennemis que vous voulez afficher
 
 typedef struct {
     SDL_Rect position;

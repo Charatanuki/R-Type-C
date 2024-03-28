@@ -30,11 +30,12 @@ void mainLoop(SDL_Renderer* renderer) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        scoreDisplay(font, renderer);
+
 
         handleEnemySpawn(&lastEnemyTime, &numEnemies, enemies);
         handlePlayerFire(&player, &lastFiredFrame);
         updateGameObjects(enemies, numEnemies, &player, &background, renderer);
+        scoreDisplay(font, renderer);
         renderGameObjects(renderer);
 
 

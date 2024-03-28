@@ -20,7 +20,7 @@ void initBackground(Background *background, int backgroundId)
 {
     background->bX = 0;
     background->bY = 0;
-    background->bdx = 1;
+    background->bdx = 10;
     background->backgroundId = backgroundId;
 }
 
@@ -43,6 +43,9 @@ void renderBackground(SDL_Renderer* renderer, Background* background) {
 
 
 void updatePosBackground(Background* background) {
+    if (background->bX <= -5400) {
+        background->bX = 0;
+    }
     background->bX -= background->bdx;
 }
 

@@ -45,7 +45,7 @@ void initMenuTextures(SDL_Renderer* renderer) {
     // Charge les images du fond et du bouton "Start"
     BgTexture = loadTexture(renderer, "./menu_screen.png");
     StartBtnTexture = loadTexture(renderer, "./btn/play_btn.png");
-    OptionBtnTexture = loadTexture(renderer, "./btn/optn_btn.png");
+    OptionBtnTexture = loadTexture(renderer, "./btn/settings_btn.png");
     QuitBtnTexture = loadTexture(renderer, "./btn/quit_btn.png");
 }
 

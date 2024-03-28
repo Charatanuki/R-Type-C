@@ -1,6 +1,7 @@
 #include "Projectile.h"
 #include "PlayerScoreValues.h"
 #include "soundeffect.h"
+#include "Explosion.h"
 
 int P1_Score = 0;
 
@@ -43,6 +44,7 @@ void updateProjectiles(Enemy* enemies) {
 					if (enemies[j].health <= 0) {
 						enemies[j].active = 0;//ennemi inactif s'il se fait détruire
 						playdestroysound();
+						triggerExplosion(enemies[j].position.x, enemies[j].position.y);
 						//ajout du score
 						P1_Score += 200;
 						printf("Score: %d\n", P1_Score);

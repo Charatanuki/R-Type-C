@@ -1,5 +1,6 @@
 #include "Projectile.h"
 #include "PlayerScoreValues.h"
+#include "soundeffect.h"
 
 int P1_Score = 0;
 
@@ -18,6 +19,7 @@ void fireProjectile(int x, int y, int speed) {
 			projectiles[i].y = y;
 			projectiles[i].speed = speed;
 			projectiles[i].active = 1;
+			playshootsound();
 			break;
 		}
 	}
@@ -38,7 +40,7 @@ void updateProjectiles(Enemy* enemies) {
 					&& projectiles[i].y <= enemies[j].position.y + enemies[j].position.h && projectiles[i].y >= enemies[j].position.y) {
 					projectiles[i].active = 0;//projectile inactif s'il touche un ennemi
 					enemies[j].active = 0;//ennemi inactif s'il se fait détruire
-
+					playdestroysound();
 					//ajout du score
 					P1_Score += 200;
 					printf("Score: %d\n", P1_Score);

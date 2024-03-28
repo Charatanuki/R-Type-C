@@ -4,9 +4,11 @@
 #include "HeaderFunction.h"
 #include "ValuesHeader.h"
 #include "ennemis.h"
+#include "soundeffect.h"
+#include "audio.h"
 
 int main(int argc, char* argv[]) {
-	initSDL();
+	initSDL();	
 	SDL_Window* window = SDL_CreateWindow("R-type-game",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		winX, winY, SDL_WINDOW_SHOWN);
@@ -21,7 +23,10 @@ int main(int argc, char* argv[]) {
 		return -1;
 	}
 
+	loadshootsound();
+	loaddestroysound();
 	SDL_Renderer* renderer = createRenderer(window);
+	cleanupSoundeffect();
 	freeAll(window, renderer);
 
 	return 0;

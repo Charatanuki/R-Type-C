@@ -6,6 +6,7 @@
 #include "PlayerValues.h"
 #include "ennemis.h"
 #include "AttackFunctions.h"
+#include "audio.h"
 
 #define FIRE_COOLDOWN 100 
 

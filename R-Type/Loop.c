@@ -8,6 +8,7 @@
 #include "ennemis.h"
 #include "LoopInitFunc.h"
 #include "Background.h"
+#include "isAlive.h"
 
 
 void mainLoop(SDL_Renderer* renderer) {
@@ -36,8 +37,7 @@ void mainLoop(SDL_Renderer* renderer) {
         levelChange(&numEnemies, enemies, &background);
         scoreDisplay(font, renderer);
         renderGameObjects(renderer);
-
-
+        isAliveCheck(isAlive);
         SDL_Delay(10);
     }
 }

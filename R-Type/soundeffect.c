@@ -17,7 +17,8 @@ void loadshootsound() {
 void playshootsound(Option option) {
     if (pew != NULL) {
         Mix_VolumeChunk(pew, option.soundVolume);
-        Mix_PlayChannel(-1, pew, 0); //0 sert à jouer 1x le son (ne loop pas)
+        Mix_PlayChannel(-1, pew, 0); 
+        //0 sert à jouer 1x le son (ne loop pas)
     }
 }
 

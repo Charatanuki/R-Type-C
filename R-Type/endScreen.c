@@ -12,21 +12,21 @@ void endScreen(SDL_Renderer* renderer)
     // Affiche le fond du menu principal
     SDL_RenderCopy(renderer, BgTexture, NULL, NULL);
 
-    // Affiche le bouton "Start" au milieu de l'écran
+    // Affiche le bouton "Start" au milieu de l'Ã©cran
     SDL_Rect btnRect;
     SDL_QueryTexture(StartBtnTexture, NULL, NULL, &btnRect.w, &btnRect.h);
     btnRect.x = (800 - btnRect.w) / 2;
     btnRect.y = (600 - btnRect.h) / 3;
     SDL_RenderCopy(renderer, StartBtnTexture, NULL, &btnRect);
 
-    // Affiche le bouton "Quitter" en bas de l'écran
+    // Affiche le bouton "Quitter" en bas de l'Ã©cran
     SDL_Rect quitBtnRect;
     SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
     quitBtnRect.x = (800 - quitBtnRect.w) / 2;
-    quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
+    quitBtnRect.y = (600 - quitBtnRect.h) / 2.25;
     SDL_RenderCopy(renderer, QuitBtnTexture, NULL, &quitBtnRect);
 
-    // Met à jour l'affichage
+    // Met Ã  jour l'affichage
     SDL_RenderPresent(renderer);
 }
 
@@ -57,7 +57,7 @@ int mouseClickEnd(SDL_Event event, bool running) {
         SDL_Rect optionBtnRect;
 
         if (isInsideButtonEnd(startBtnRect, x, y)) {
-            running = false; // Arrête le menu principal
+            running = false; // ArrÃªte le menu principal
             return PLAY;
         }
         else if (isInsideButtonEnd(quitBtnRect, x, y)) {

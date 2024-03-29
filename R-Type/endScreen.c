@@ -16,7 +16,7 @@ void endScreen(SDL_Renderer* renderer)
     SDL_Rect btnRect;
     SDL_QueryTexture(StartBtnTexture, NULL, NULL, &btnRect.w, &btnRect.h);
     btnRect.x = (800 - btnRect.w) / 2;
-    btnRect.y = (600 - btnRect.h) / 3;
+    btnRect.y = (600 - btnRect.h) / 3.5;
     SDL_RenderCopy(renderer, StartBtnTexture, NULL, &btnRect);
 
     // Affiche le bouton "Quitter" en bas de l'écran
@@ -49,7 +49,7 @@ int mouseClickEnd(SDL_Event event, bool running) {
         SDL_Rect startBtnRect;
         SDL_QueryTexture(StartBtnTexture, NULL, NULL, &startBtnRect.w, &startBtnRect.h);
         startBtnRect.x = (800 - startBtnRect.w) / 2;
-        startBtnRect.y = (600 - startBtnRect.h) / 3;
+        startBtnRect.y = (600 - startBtnRect.h) / 3.5;
         SDL_Rect quitBtnRect;
         SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
         quitBtnRect.x = (800 - quitBtnRect.w) / 2;

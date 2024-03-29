@@ -40,6 +40,12 @@
     <Filter Include="Source Files\System">
       <UniqueIdentifier>{7563c049-6867-4bad-a513-d326e9ccc745}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Menus">
+      <UniqueIdentifier>{9356d7ea-8df0-4827-9036-b26c5b18cce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus">
+      <UniqueIdentifier>{49300a51-8c22-4e34-8a46-e87354323a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AttackFunctions.h">
@@ -84,6 +90,33 @@
     <ClCompile Include="soundeffect.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
+    <ClCompile Include="ExTextureManager.c">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.c">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="isAlive.c">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="InitPlayer.c">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="option.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="endScreen.c">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="endScreenDetails.c">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.c">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuSelect.c">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerScoreValues.h">
@@ -119,6 +152,33 @@
     <ClInclude Include="ValuesHeader.h">
       <Filter>Header Files\System</Filter>
     </ClInclude>
+    <ClInclude Include="isAlive.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ExTextureManager.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Loop.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="option.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="EndDisplay.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="endScreen.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuSelect.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="spaceship.png">
@@ -126,21 +186,6 @@
     </Image>
     <Image Include="ennemy.png">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="bg\bg0.png">
-      <Filter>Resource Files\bg</Filter>
-    </Image>
-    <Image Include="bg\bg4.png">
-      <Filter>Resource Files\bg</Filter>
-    </Image>
-    <Image Include="bg\bg1.png">
-      <Filter>Resource Files\bg</Filter>
-    </Image>
-    <Image Include="bg\bg2.png">
-      <Filter>Resource Files\bg</Filter>
-    </Image>
-    <Image Include="bg\bg3.png">
-      <Filter>Resource Files\bg</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

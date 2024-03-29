@@ -9,5 +9,6 @@ typedef struct {
 	int pSize;
 	int immortal;
 	Uint32 hurtTime;
+	int health;
 } Player;
 

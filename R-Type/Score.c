@@ -8,10 +8,10 @@
 
 
 
-int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer) {
+int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer, Player player) {
     // Render text for the scores
     char scoreText[64]; // Assuming the score won't exceed 64 characters
-    sprintf_s(scoreText, sizeof(scoreText), "Score: %d     Health: %d     Level: %d", P1_Score, P1_Health, level);
+    sprintf_s(scoreText, sizeof(scoreText), "Score: %d     Health: %d     Level: %d", P1_Score, player.health, level);
 
     // Check if the font was loaded successfully
     if (font == NULL || renderer == NULL) {

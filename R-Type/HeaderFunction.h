@@ -1,8 +1,10 @@
 #pragma once
 #include <stdbool.h>
+#include <SDL.h>
 #include <SDL_ttf.h>
 #include "PlayerValues.h"
 #include "Background.h"
+#include "option.h"
 
 
 // Init functions
@@ -15,20 +17,15 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
 
 // Movement player function
 void initPlayer(Player* player);
-void handleKey(Player *player);
-void handlePlayer(SDL_Renderer* renderer);
-void mainLoop(SDL_Renderer* renderer);
+void handleKey(Player* player);
+void handlePlayer(SDL_Renderer* renderer, Player* player);
+void playerHurt(Player* player);
+void mainLoop(SDL_Renderer* renderer, Option option);
 
 
-int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer);
+int scoreDisplay(TTF_Font* font, SDL_Renderer* renderer, Player player);
 
-void levelChange();
-
-
-// Background
-void initBackground(Background* background, int backgroundId);
-void handleBackground(SDL_Renderer* renderer);
-void initBackground(Background* background, int backgroundId);
+void levelChange(int* numEnemies, Enemy enemies[], Background* background);
 
 // Menu
 int handleMainMenu(SDL_Renderer* renderer);

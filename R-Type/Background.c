@@ -1,11 +1,4 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <stdio.h>
-#include "PlayerScoreValues.h"
-#include "ennemis.h"
 #include "Background.h"
-#include "HeaderFunction.h"
-
 
 #define MAX_BACKGROUND_TEXTURES 4
 

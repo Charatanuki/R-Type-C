@@ -3,4 +3,3 @@
 
 
 extern int P1_Score;
-extern int P1_Health;

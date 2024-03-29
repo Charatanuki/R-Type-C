@@ -9,4 +9,5 @@ void initPlayer(Player* player)
     player->dx = 0;
     player->dy = 0;
     player->immortal = 0;
+    player->health = 3;
 }

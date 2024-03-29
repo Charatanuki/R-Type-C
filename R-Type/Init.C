@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "HeaderFunction.h"
 #include "menu.h"
+#include "option.h"
 
 
 int initSDL() {
@@ -22,16 +23,28 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
         SDL_Quit();
         return NULL;
     }
-    int menuResult = handleMainMenu(renderer);
-    switch (menuResult)
+    int gameState = handleMainMenu(renderer);
+    Option option;
+    initOption(&option);
+    while (gameState != ERROR && gameState != QUIT)
     {
-    case PLAY:
-        mainLoop(renderer);
-        break;
-    case OPTION:
-        break;
-    default:
-        break;
+        switch (gameState)
+        {
+        case PLAY:
+            mainLoop(renderer, option);
+            break;
+        case OPTION:
+            gameState = QUIT; // changer QUIT par l'appel pour aller sur l'écran des options
+            break;
+        case MENU:
+            gameState = handleMainMenu(renderer);
+            break;
+        case ENDSCREEN:
+            gameState = QUIT; // changer QUIT par l'appel pour aller sur l'endscreen
+            break;
+        default:
+            break;
+        }
     }
     return renderer;
 }

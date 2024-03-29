@@ -4,6 +4,7 @@
 #include <SDL_mixer.h>
 #include "soundeffect.h"
 #include "audio.h"
+#include "option.h"
 
 //Permet de manipuler les sounds effects
 Mix_Chunk* boom = NULL; //explosion
@@ -16,9 +17,9 @@ void loadshootsound() {
         printf("Failed to load shoot sound! SDL_mixer Error: %s\n", Mix_GetError());
     }
 }
-void playshootsound() {
+void playshootsound(Option option) {
     if (pew != NULL) {
-        Mix_VolumeChunk(pew, 32);
+        Mix_VolumeChunk(pew, option.soundVolume);
         Mix_PlayChannel(-1, pew, 0);
     }
 }
@@ -28,9 +29,9 @@ void loaddestroysound() {
         printf("Failed to load enemy destroy sound! SDL_mixer Error: %s\n", Mix_GetError());
     }
 }
-void playdestroysound() {
+void playdestroysound(Option option) {
     if (boom != NULL) {
-        Mix_VolumeChunk(boom, 96);
+        Mix_VolumeChunk(boom, option.soundVolume * 3);
         Mix_PlayChannel(-1, boom, 0);
     }
 }

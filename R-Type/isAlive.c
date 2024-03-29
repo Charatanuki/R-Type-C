@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include "isAlive.h"
 #include "PlayerScoreValues.h"
+
 bool isAlive = true;
-void isAliveCheck() {
-	while (isAlive && P1_Health <= 0)
+
+void isAliveCheck(Player player) {
+	while (isAlive && player.health <= 0)
 	{
 		isAlive = false;
 		printf("you are DEAD \n");

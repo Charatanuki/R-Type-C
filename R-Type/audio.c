@@ -1,7 +1,3 @@
-#include <SDL.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL_mixer.h>
 #include "audio.h"
 
 //Permet de manipuler la musique
@@ -22,15 +18,11 @@ void loadbgmusic() {
     }
 }
 
-void playbgmusic() {
+void playbgmusic(Option option) {
     if (music != NULL) {
-        Mix_VolumeChunk(music, 32);
+        Mix_VolumeChunk(music, option.musicVolume);
         Mix_PlayChannel(-1, music, -1);
     }
-}
-
-void stopbgmusic() {
-    Mix_HaltMusic();
 }
 
 void cleanupAudio() {

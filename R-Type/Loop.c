@@ -10,9 +10,10 @@
 #include "Background.h"
 #include "isAlive.h"
 #include "menu.h"
+#include "option.h"
 
 
-void mainLoop(SDL_Renderer* renderer) {
+void mainLoop(SDL_Renderer* renderer, Option option) {
     Enemy enemies[MAX_ENEMIES];
     int numEnemies;
     Player player;
@@ -26,19 +27,19 @@ void mainLoop(SDL_Renderer* renderer) {
     unsigned int lastEnemyTime = SDL_GetTicks();
     unsigned int lastFiredFrame = 0;
 
-    initializeGameObjects(enemies, &numEnemies, &player, &background);
+    initializeGameObjects(enemies, &numEnemies, &player, &background, option);
     printf("x%d    y%d", background.bX, background.bY);
     while (1) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
         
         handleEnemySpawn(&lastEnemyTime, &numEnemies, enemies);
-        handlePlayerFire(&player, &lastFiredFrame);
-        updateGameObjects(enemies, numEnemies, &player, &background, renderer);
+        handlePlayerFire(&player, &lastFiredFrame, option);
+        updateGameObjects(enemies, numEnemies, &player, &background, renderer, option);
         levelChange(&numEnemies, enemies, &background);
-        scoreDisplay(font, renderer);
+        scoreDisplay(font, renderer, player);
         renderGameObjects(renderer);
-        isAliveCheck(isAlive);
+        isAliveCheck(player);
         SDL_Delay(10);
     }
 }

@@ -6,12 +6,13 @@ SDL_Texture* StartBtnTexture;
 SDL_Texture* OptionBtnTexture;
 SDL_Texture* QuitBtnTexture;
 
-enum game {
+enum State {
     MENU,
     PLAY,
     OPTION,
     QUIT,
-    ENDSCREEN
+    ENDSCREEN,
+    ERROR = -1
 };
 
 // Fonction pour afficher le menu principal

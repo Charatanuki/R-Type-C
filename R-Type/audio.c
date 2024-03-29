@@ -21,7 +21,8 @@ void loadbgmusic() {
 void playbgmusic(Option option) {
     if (music != NULL) {
         Mix_VolumeChunk(music, option.musicVolume);
-        Mix_PlayChannel(-1, music, -1);
+        Mix_PlayChannel(-1, music, -1); //-1 sert à prendre le 1er canal dispo pour jouer
+        //le 2eme -1 sert à repeat infini tant que ça stop pas manuellement
     }
 }
 

@@ -159,10 +159,12 @@
     <ClCompile Include="menu.c" />
     <ClCompile Include="MenuSelect.c" />
     <ClCompile Include="option.c" />
+    <ClCompile Include="PlayerTextureManager.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
     <ClCompile Include="Score.c" />
     <ClCompile Include="soundeffect.c" />
+    <ClCompile Include="VolumeOption.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="audio.h" />
@@ -182,6 +184,7 @@
     <ClInclude Include="PlayerScoreValues.h" />
     <ClInclude Include="PlayerValues.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="PTextureManager.h" />
     <ClInclude Include="ScoreValues.h" />
     <ClInclude Include="soundeffect.h" />
     <ClInclude Include="ValuesHeader.h" />
@@ -191,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="ennemy.png" />
+    <Image Include="Shield-ship.png" />
     <Image Include="spaceship.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

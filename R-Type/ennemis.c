@@ -5,7 +5,8 @@
 #include "ennemis.h"
 #include "HeaderFunction.h"
 
-void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed, int enemeyHealth) //initialise l'ennemi de base
+void initEnemy(Enemy* enemy, int x, int y, int width, 
+    int height, int speed, int enemeyHealth) //initialise l'ennemi de base
 {
     enemy->position.x = x;
     enemy->position.y = y;
@@ -16,7 +17,8 @@ void initEnemy(Enemy* enemy, int x, int y, int width, int height, int speed, int
     enemy->health = enemeyHealth;
 }
 
-void initEnemies(Enemy enemies[], int numEnemies, int width, int height, int newSpeed, int enemeyHealth) //position & vitesse de l'ennemi
+void initEnemies(Enemy enemies[], int numEnemies, int width, 
+    int height, int newSpeed, int enemeyHealth) //position & vitesse de l'ennemi
 {
     srand(time(NULL)); //initialise le generateur random
 
@@ -46,7 +48,8 @@ void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //affi
     SDL_Texture* enemyTexture = loadTexture(renderer, "./ennemy.png");
     for (int i = 0; i < numEnemies; ++i) {
         if (enemies[i].active) {
-            SDL_Rect enemyRect = { enemies[i].position.x, enemies[i].position.y, enemies[i].position.w, enemies[i].position.h };
+            SDL_Rect enemyRect = { enemies[i].position.x, enemies[i].position.y, 
+                enemies[i].position.w, enemies[i].position.h };
             if (enemyTexture != NULL) {
                 SDL_RenderCopy(renderer, enemyTexture, NULL, &enemyRect);
             }

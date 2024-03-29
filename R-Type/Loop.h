@@ -12,6 +12,7 @@
 #include "ExTextureManager.h"
 #include "audio.h"
 #include "PlayerScoreValues.h"
+#include "PTextureManager.h"
 
 int mainLoop(SDL_Renderer* renderer, Option option);
 

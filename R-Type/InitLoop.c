@@ -8,6 +8,7 @@
 #include "audio.h"
 #include "Explosion.h"
 #include "ExTextureManager.h"
+#include "PTextureManager.h"
 
 #define FIRE_COOLDOWN 100
 
@@ -16,6 +17,7 @@ int enemeyHealth = 1;
 
 void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, 
     Background* background, Option option, SDL_Renderer* renderer, int eHealth) {
+    loadPlayerTextures(renderer);
     initializeExplosionTexture(renderer);
     initializeExplosions();
     playbgmusic(option);
@@ -27,7 +29,8 @@ void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player,
     initPlayer(player);
 }
 
-void handleEnemySpawn(unsigned int* lastEnemyTime, int* numEnemies, Enemy enemies[]) {
+void handleEnemySpawn(unsigned int* lastEnemyTime, 
+    int* numEnemies, Enemy enemies[]) {
     unsigned int currentTime = SDL_GetTicks();
     if (currentTime - *lastEnemyTime > 7500) {
         *lastEnemyTime = currentTime;
@@ -35,7 +38,8 @@ void handleEnemySpawn(unsigned int* lastEnemyTime, int* numEnemies, Enemy enemie
             *numEnemies = 50;
         }
         if (*numEnemies < MAX_ENEMIES) {
-            initEnemies(&enemies[*numEnemies], 1, 800, 600, newSpeed, enemeyHealth);
+            initEnemies(&enemies[*numEnemies], 1, 800, 600, 
+                newSpeed, enemeyHealth);
             (*numEnemies)++;
         }
     }
@@ -44,7 +48,8 @@ void handleEnemySpawn(unsigned int* lastEnemyTime, int* numEnemies, Enemy enemie
 void handlePlayerFire(Player* player, unsigned int* lastFiredFrame, Option option) {
     unsigned int currentTime = SDL_GetTicks();
     if (isFiring == 1 && (currentTime - *lastFiredFrame) >= FIRE_COOLDOWN) {
-        fireProjectile(player->pX + player->pSize, player->pY + player->pSize / 2, 5, option);
+        fireProjectile(player->pX + player->pSize, 
+            player->pY + player->pSize / 2, 5, option);
         *lastFiredFrame = currentTime;
     }
 }

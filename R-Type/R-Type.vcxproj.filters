@@ -117,6 +117,12 @@
     <ClCompile Include="MenuSelect.c">
       <Filter>Source Files\Menus</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerTextureManager.c">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeOption.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerScoreValues.h">
@@ -179,12 +185,18 @@
     <ClInclude Include="MenuSelect.h">
       <Filter>Header Files\Menus</Filter>
     </ClInclude>
+    <ClInclude Include="PTextureManager.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="spaceship.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="ennemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Shield-ship.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

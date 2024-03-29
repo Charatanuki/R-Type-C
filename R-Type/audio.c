@@ -7,14 +7,16 @@ Mix_Chunk* music = NULL;
 void initAudio() {
     if (Mix_OpenAudio(44100, AUDIO_F32SYS, 2, 2048) < 0)
     {
-        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", 
+            Mix_GetError());
     }
 }
 
 void loadbgmusic() {
     music = Mix_LoadWAV("./music.wav");
     if (music == NULL) {
-        printf("Failed to load background musicSDL_mixer Error: %s\n", Mix_GetError());
+        printf("Failed to load background musicSDL_mixer Error: %s\n", 
+            Mix_GetError());
     }
 }
 

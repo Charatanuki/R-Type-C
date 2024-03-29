@@ -1,5 +1,4 @@
-#ifndef OPTION_H
-#define OPTION_H
+#pragma once
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -20,4 +19,5 @@ SDL_Texture* returnTexture;
 void initOption(Option* option);
 int handleOptionMenu(SDL_Renderer* renderer, Option* option);
 
-#endif // !OPTION_H
+int musicVolumeOpt(Option* option);
+int soundVolumeOpt(Option* option);

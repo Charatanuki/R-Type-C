@@ -43,8 +43,10 @@ void renderExplosions(SDL_Renderer* renderer) {
     for (int i = 0; i < MAX_EXPLOSIONS; i++) {
         if (explosions[i].active) {
             // Render explosion animation at (explosions[i].x, explosions[i].y)
-            SDL_Rect explosionRect = { explosions[i].x, explosions[i].y, EXPLOSION_WIDTH, EXPLOSION_HEIGHT };
-            SDL_Rect srcRect = { explosions[i].frame * FRAME_WIDTH, 0, FRAME_WIDTH, FRAME_HEIGHT };
+            SDL_Rect explosionRect = { explosions[i].x, 
+                explosions[i].y, EXPLOSION_WIDTH, EXPLOSION_HEIGHT };
+            SDL_Rect srcRect = { explosions[i].frame * FRAME_WIDTH, 
+                0, FRAME_WIDTH, FRAME_HEIGHT };
             SDL_RenderCopy(renderer, explosionTexture, &srcRect, &explosionRect);
         }
     }

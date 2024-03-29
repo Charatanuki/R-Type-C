@@ -11,23 +11,23 @@ void endScreen(SDL_Renderer* renderer, TTF_Font* font)
 
     // Affiche le bouton "Start" au milieu de l'écran
     SDL_Rect btnRect;
-    SDL_QueryTexture(StartBtnTexture, NULL, NULL, &btnRect.w, &btnRect.h);
+    SDL_QueryTexture(StartBtnTexture, NULL, NULL, 
+        &btnRect.w, &btnRect.h);
     btnRect.x = (800 - btnRect.w) / 2;
     btnRect.y = (600 - btnRect.h) / 4;
     SDL_RenderCopy(renderer, StartBtnTexture, NULL, &btnRect);
 
     // Affiche le bouton "Quitter" en bas de l'écran
     SDL_Rect quitBtnRect;
-    SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
+    SDL_QueryTexture(QuitBtnTexture, NULL, NULL, 
+        &quitBtnRect.w, &quitBtnRect.h);
     quitBtnRect.x = (800 - quitBtnRect.w) / 2;
     quitBtnRect.y = (600 - quitBtnRect.h) / 3;
     SDL_RenderCopy(renderer, QuitBtnTexture, NULL, &quitBtnRect);
 
     endScoreDisplay(font, renderer);
 
-    // Met à jour l'affichage
     SDL_RenderPresent(renderer);
-
 }
 
 bool isInsideButtonEnd(SDL_Rect btnRect, int x, int y) {
@@ -47,11 +47,13 @@ int mouseClickEnd(SDL_Event event, bool running) {
         int x = event.button.x;
         int y = event.button.y;
         SDL_Rect startBtnRect;
-        SDL_QueryTexture(StartBtnTexture, NULL, NULL, &startBtnRect.w, &startBtnRect.h);
+        SDL_QueryTexture(StartBtnTexture, NULL, NULL, 
+            &startBtnRect.w, &startBtnRect.h);
         startBtnRect.x = (800 - startBtnRect.w) / 2;
         startBtnRect.y = (600 - startBtnRect.h) / 4;
         SDL_Rect quitBtnRect;
-        SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
+        SDL_QueryTexture(QuitBtnTexture, NULL, NULL, 
+            &quitBtnRect.w, &quitBtnRect.h);
         quitBtnRect.x = (800 - quitBtnRect.w) / 2;
         quitBtnRect.y = (600 - quitBtnRect.h) / 3;
         SDL_Rect optionBtnRect;
@@ -95,8 +97,6 @@ int handleEnd(SDL_Renderer* renderer, TTF_Font* font) {
         }
     }
 
-    SDL_DestroyTexture(BgTexture);
-    SDL_DestroyTexture(StartBtnTexture);
-    SDL_DestroyTexture(QuitBtnTexture);
+    freeEndDisplay();
     return 0;
 }

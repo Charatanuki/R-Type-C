@@ -7,26 +7,28 @@ void Menu(SDL_Renderer* renderer)
 
     // Affiche le bouton "Start" au milieu de l'écran
     SDL_Rect btnRect;
-    SDL_QueryTexture(StartBtnTexture, NULL, NULL, &btnRect.w, &btnRect.h);
+    SDL_QueryTexture(StartBtnTexture, NULL, NULL, 
+        &btnRect.w, &btnRect.h);
     btnRect.x = (800 - btnRect.w) / 2;
     btnRect.y = (600 - btnRect.h) / 3;
     SDL_RenderCopy(renderer, StartBtnTexture, NULL, &btnRect);
 
     // Affiche le bouton "Option" au milieu de l'écran
     SDL_Rect optionBtnRect;
-    SDL_QueryTexture(OptionBtnTexture, NULL, NULL, &optionBtnRect.w, &optionBtnRect.h);
+    SDL_QueryTexture(OptionBtnTexture, NULL, NULL, 
+        &optionBtnRect.w, &optionBtnRect.h);
     optionBtnRect.x = (800 - optionBtnRect.w) / 2;
     optionBtnRect.y = (600 - optionBtnRect.h) / 2;
     SDL_RenderCopy(renderer, OptionBtnTexture, NULL, &optionBtnRect);
 
     // Affiche le bouton "Quitter" en bas de l'écran
     SDL_Rect quitBtnRect;
-    SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
+    SDL_QueryTexture(QuitBtnTexture, NULL, NULL, 
+        &quitBtnRect.w, &quitBtnRect.h);
     quitBtnRect.x = (800 - quitBtnRect.w) / 2;
     quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
     SDL_RenderCopy(renderer, QuitBtnTexture, NULL, &quitBtnRect);
 
-    // Met à jour l'affichage
     SDL_RenderPresent(renderer);
 }
 
@@ -48,28 +50,28 @@ int mouseClick(SDL_Event event, bool running) {
         int x = event.button.x;
         int y = event.button.y;
         SDL_Rect startBtnRect;
-        SDL_QueryTexture(StartBtnTexture, NULL, NULL, &startBtnRect.w, &startBtnRect.h);
+        SDL_QueryTexture(StartBtnTexture, NULL, NULL, 
+            &startBtnRect.w, &startBtnRect.h);
         startBtnRect.x = (800 - startBtnRect.w) / 2;
         startBtnRect.y = (600 - startBtnRect.h) / 3;
         SDL_Rect quitBtnRect;
-        SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
+        SDL_QueryTexture(QuitBtnTexture, NULL, NULL, 
+            &quitBtnRect.w, &quitBtnRect.h);
         quitBtnRect.x = (800 - quitBtnRect.w) / 2;
         quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
         SDL_Rect optionBtnRect;
-        SDL_QueryTexture(OptionBtnTexture, NULL, NULL, &optionBtnRect.w, &optionBtnRect.h);
+        SDL_QueryTexture(OptionBtnTexture, NULL, NULL, 
+            &optionBtnRect.w, &optionBtnRect.h);
         optionBtnRect.x = (800 - optionBtnRect.w) / 2;
         optionBtnRect.y = (600 - optionBtnRect.h) / 2;
 
         if (isInsideButton(startBtnRect, x, y)) {
-            running = false; // Arrête le menu principal
             return PLAY;
         }
         else if (isInsideButton(quitBtnRect, x, y)) {
-            running = false; // Quitte le jeu
             return QUIT;
         }
         else if (isInsideButton(optionBtnRect, x, y)) {
-            running = false; // option du jeu
             return OPTION;
         }
     }
@@ -102,9 +104,5 @@ int handleMainMenu(SDL_Renderer* renderer) {
             }
         }
     }
-
-    SDL_DestroyTexture(BgTexture);
-    SDL_DestroyTexture(StartBtnTexture);
-    SDL_DestroyTexture(QuitBtnTexture);
     return 0;
 }

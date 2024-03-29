@@ -1,5 +1,4 @@
-#ifndef HEADERFUNCTION_H
-#define HEADERFUNCTION_H
+#pragma once
 
 #include <stdbool.h>
 #include <SDL.h>
@@ -27,6 +26,7 @@ void levelChange(int* numEnemies, Enemy enemies[], Background* background);
 int handleMainMenu(SDL_Renderer* renderer);
 int handleEnd(SDL_Renderer* renderer);
 int endScoreDisplay(TTF_Font* font, SDL_Renderer* renderer);
-#endif // !HEADERFUNCTION_H
+void freeEndDisplay();
+
 
 

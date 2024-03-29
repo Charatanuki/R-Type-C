@@ -25,25 +25,32 @@ void setting(SDL_Renderer* renderer, Option *option) {
 
     // Affiche le bouton "Music" au milieu de l'écran
     SDL_Rect musicRect;
-    SDL_QueryTexture(musicTexture, NULL, NULL, &musicRect.w, &musicRect.h);
+    SDL_QueryTexture(musicTexture, NULL, NULL, 
+        &musicRect.w, &musicRect.h);
     musicRect.x = (800 - musicRect.w) / 2;
     musicRect.y = (600 - musicRect.h) / 3;
     SDL_RenderCopy(renderer, musicTexture, NULL, &musicRect);
     // Affiche le bouton "SFX" au milieu de l'écran
     SDL_Rect SFXRect;
-    SDL_QueryTexture(SFXTexture, NULL, NULL, &SFXRect.w, &SFXRect.h);
+    SDL_QueryTexture(SFXTexture, NULL, NULL, 
+        &SFXRect.w, &SFXRect.h);
     SFXRect.x = (800 - SFXRect.w) / 2;
     SFXRect.y = (600 - SFXRect.h) / 2;
     SDL_RenderCopy(renderer, SFXTexture, NULL, &SFXRect);
     // Affiche le bouton "Quitter" en bas de l'écran
     SDL_Rect returnBtnRect;
-    SDL_QueryTexture(returnTexture, NULL, NULL, &returnBtnRect.w, &returnBtnRect.h);
+    SDL_QueryTexture(returnTexture, NULL, NULL, 
+        &returnBtnRect.w, &returnBtnRect.h);
     returnBtnRect.x = (800 - returnBtnRect.w) / 2;
     returnBtnRect.y = (600 - returnBtnRect.h) / 1.5;
     SDL_RenderCopy(renderer, returnTexture, NULL, &returnBtnRect);
     // Met à jour l'affichage
     SDL_RenderPresent(renderer);
 }
+
+
+
+
 
 int mouseClickOption(SDL_Event event, Option *option) {
     if (event.button.button == SDL_BUTTON_LEFT) {
@@ -63,19 +70,14 @@ int mouseClickOption(SDL_Event event, Option *option) {
         SFXBtnRect.y = (600 - SFXBtnRect.h) / 2;
 
         if (isInsideButton(musicBtnRect, x, y)) {
-            if (option->musicVolume == 0) {
-                option->musicVolume = 32;
-            } else option->musicVolume = 0;
+            musicVolumeOpt(option);
             return OPTION;
         }
         else if (isInsideButton(returnBtnRect, x, y)) {
             return MENU;
         }
         else if (isInsideButton(SFXBtnRect, x, y)) {
-            if (option->soundVolume == 0) {
-                option->soundVolume = 32;
-            }
-            else option->soundVolume = 0;
+            soundVolumeOpt(option);
             return OPTION;
         }
     }

@@ -27,6 +27,18 @@ void fireProjectile(int x, int y, int speed, Option option) {
 	}
 }
 
+void isHurt(Enemy enemies[], Option option, Projectile projectiles[]) {
+	projectiles->active = 0;//projectile inactif s'il touche un ennemi
+	enemies->health--;
+	if (enemies->health <= 0) {
+		enemies->active = 0;//ennemi inactif s'il se fait détruire
+		triggerExplosion(enemies->position.x, enemies->position.y);
+		playdestroysound(option);
+		//ajout du score
+		P1_Score += 200;
+		printf("Score: %d\n", P1_Score);
+	}
+}
 
 void updateProjectiles(Enemy* enemies, Option option) {
 	for (int i = 0; i < MAX_PROJECTILES; i++) {
@@ -36,20 +48,14 @@ void updateProjectiles(Enemy* enemies, Option option) {
 				projectiles[i].active = 0; //projectile est "supprimé" s'il atteint sa zone d'attaque max
 			}
 			for (int j = 0; j < MAX_ENEMIES; j++) {
-				// vérifie si un projectile entre en contact avec un ennemy actif et désactive les deux si c'est le cas
-				if (enemies[j].active && projectiles[i].x <= enemies[j].position.x + 
-					enemies[j].position.w && projectiles[i].x >= enemies[j].position.x
-					&& projectiles[i].y <= enemies[j].position.y + enemies[j].position.h && projectiles[i].y >= enemies[j].position.y) {
-					projectiles[i].active = 0;//projectile inactif s'il touche un ennemi
-					enemies[j].health--;
-					if (enemies[j].health <= 0) {
-						enemies[j].active = 0;//ennemi inactif s'il se fait détruire
-						triggerExplosion(enemies[j].position.x, enemies[j].position.y);
-						playdestroysound(option);
-						//ajout du score
-						P1_Score += 200;
-						printf("Score: %d\n", P1_Score);
-					}
+				// vérifie si un projectile entre en contact avec un ennemy 
+				if (enemies[j].active && projectiles[i].x <= 
+					enemies[j].position.x +
+					enemies[j].position.w && projectiles[i].x >= 
+					enemies[j].position.x && projectiles[i].y <= 
+					enemies[j].position.y + enemies[j].position.h 
+					&& projectiles[i].y >= enemies[j].position.y) {
+					isHurt(&enemies[j], option, &projectiles[i]);
 					break;	
 				}
 			}
@@ -64,7 +70,8 @@ void renderProjectiles(SDL_Renderer* renderer) {
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 	for (int i = 0; i < MAX_PROJECTILES; i++) {
 		if (projectiles[i].active) {
-			SDL_Rect projectileRect = { projectiles[i].x, projectiles[i].y, 5, 5 };
+			SDL_Rect projectileRect = { projectiles[i].x, 
+				projectiles[i].y, 5, 5 };
 			SDL_RenderFillRect(renderer, &projectileRect);
 		}
 

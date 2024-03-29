@@ -11,7 +11,6 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
     initValues();
 
-
     initializeGameObjects(enemies, &numEnemies, &player, &background, 
         option, renderer, 1);
     while (isAliveCheck(&player)) {
@@ -30,6 +29,7 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
         SDL_Delay(10);
     }
     freeExplosionTexture();
+    freePlayerTextures();
     Mix_Pause(-1);
 
     return ENDSCREEN;

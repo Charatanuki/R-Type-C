@@ -16,3 +16,5 @@ SDL_Surface* scoreSurface = NULL;
 // Texture for the score text
 SDL_Texture* scoreTexture = NULL;
 
+char scoreText[64];
+

@@ -1,49 +1,41 @@
-#include "menu.h"
+#include "endScreen.h"
 
-void Menu(SDL_Renderer* renderer)
+void endScreen(SDL_Renderer* renderer)
 {
     // Affiche le fond du menu principal
     SDL_RenderCopy(renderer, BgTexture, NULL, NULL);
 
-    // Affiche le bouton "Start" au milieu de l'écran
+    // Affiche le bouton "Start" au milieu de l'Ã©cran
     SDL_Rect btnRect;
     SDL_QueryTexture(StartBtnTexture, NULL, NULL, &btnRect.w, &btnRect.h);
     btnRect.x = (800 - btnRect.w) / 2;
     btnRect.y = (600 - btnRect.h) / 3;
     SDL_RenderCopy(renderer, StartBtnTexture, NULL, &btnRect);
 
-    // Affiche le bouton "Option" au milieu de l'écran
-    SDL_Rect optionBtnRect;
-    SDL_QueryTexture(OptionBtnTexture, NULL, NULL, &optionBtnRect.w, &optionBtnRect.h);
-    optionBtnRect.x = (800 - optionBtnRect.w) / 2;
-    optionBtnRect.y = (600 - optionBtnRect.h) / 2;
-    SDL_RenderCopy(renderer, OptionBtnTexture, NULL, &optionBtnRect);
-
-    // Affiche le bouton "Quitter" en bas de l'écran
+    // Affiche le bouton "Quitter" en bas de l'Ã©cran
     SDL_Rect quitBtnRect;
     SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
     quitBtnRect.x = (800 - quitBtnRect.w) / 2;
-    quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
+    quitBtnRect.y = (600 - quitBtnRect.h) / 2.25;
     SDL_RenderCopy(renderer, QuitBtnTexture, NULL, &quitBtnRect);
 
-    // Met à jour l'affichage
+    // Met Ã  jour l'affichage
     SDL_RenderPresent(renderer);
 }
 
-bool isInsideButton(SDL_Rect btnRect, int x, int y) {
+bool isInsideButtonEnd(SDL_Rect btnRect, int x, int y) {
     return (x >= btnRect.x && x <= btnRect.x + btnRect.w &&
         y >= btnRect.y && y <= btnRect.y + btnRect.h);
 }
 
-void initMenuTextures(SDL_Renderer* renderer) {
+void initEndTextures(SDL_Renderer* renderer) {
     // Charge les images du fond et du bouton "Start"
-    BgTexture = loadTexture(renderer, "./menu_screen.png");
-    StartBtnTexture = loadTexture(renderer, "./btn/play_btn.png");
-    OptionBtnTexture = loadTexture(renderer, "./btn/settings_btn.png");
+    BgTexture = loadTexture(renderer, "./Endgame_bg.png");
+    StartBtnTexture = loadTexture(renderer, "./btn/play_again_btn.png");
     QuitBtnTexture = loadTexture(renderer, "./btn/quit_btn.png");
 }
 
-int mouseClick(SDL_Event event, bool running) {
+int mouseClickEnd(SDL_Event event, bool running) {
     if (event.button.button == SDL_BUTTON_LEFT) {
         int x = event.button.x;
         int y = event.button.y;
@@ -56,45 +48,38 @@ int mouseClick(SDL_Event event, bool running) {
         quitBtnRect.x = (800 - quitBtnRect.w) / 2;
         quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
         SDL_Rect optionBtnRect;
-        SDL_QueryTexture(OptionBtnTexture, NULL, NULL, &optionBtnRect.w, &optionBtnRect.h);
-        optionBtnRect.x = (800 - optionBtnRect.w) / 2;
-        optionBtnRect.y = (600 - optionBtnRect.h) / 2;
 
-        if (isInsideButton(startBtnRect, x, y)) {
-            running = false; // Arrête le menu principal
+        if (isInsideButtonEnd(startBtnRect, x, y)) {
+            running = false; // ArrÃªte le menu principal
             return PLAY;
         }
-        else if (isInsideButton(quitBtnRect, x, y)) {
+        else if (isInsideButtonEnd(quitBtnRect, x, y)) {
             running = false; // Quitte le jeu
             return QUIT;
-        }
-        else if (isInsideButton(optionBtnRect, x, y)) {
-            running = false; // option du jeu
-            return OPTION;
         }
     }
 }
 
-int handleMainMenu(SDL_Renderer* renderer) {
-    initMenuTextures(renderer);
+int handleEnd(SDL_Renderer* renderer) {
+    initEndTextures(renderer);
 
     if (!BgTexture || !StartBtnTexture || !QuitBtnTexture) {
         printf("Erreur lors du chargement des images du menu principal.\n");
-        return -1;
+        return ERROR;
     }
 
     SDL_Event event;
     bool running = true;
     while (running) {
         while (SDL_PollEvent(&event)) {
-            Menu(renderer);
+            endScreen(renderer);
             int clickResult = 0;
             switch (event.type) {
             case SDL_QUIT:
                 running = false;
                 break;
             case SDL_MOUSEBUTTONDOWN:
-                clickResult = mouseClick(event, &running);
+                clickResult = mouseClickEnd(event, &running);
                 break;
             }
             if (clickResult != 0) {

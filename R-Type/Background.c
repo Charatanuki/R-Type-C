@@ -1,11 +1,15 @@
+#include <SDL.h>
+#include <SDL_image.h>
+#include <stdio.h>
+#include "PlayerScoreValues.h"
+#include "ennemis.h"
 #include "Background.h"
+#include "HeaderFunction.h"
 
 #define MAX_BACKGROUND_TEXTURES 4
 
 int currentBackgroundId = -1;
-
 SDL_Texture* currentBackgroundTexture = NULL;
-
 
 void loadBackgroundTexture(SDL_Renderer* renderer, int backgroundId) {
     if (backgroundId > MAX_BACKGROUND_TEXTURES) {
@@ -27,7 +31,7 @@ void loadBackgroundTexture(SDL_Renderer* renderer, int backgroundId) {
     }
 }
 
-void initBackground(Background *background, int backgroundId)
+void initBackground(Background* background, int backgroundId)
 {
     background->bX = 0;
     background->bY = 0;
@@ -60,7 +64,7 @@ void updatePosBackground(Background* background) {
 }
 
 void handleBackground(SDL_Renderer* renderer, Background* background) {
-    loadBackgroundTexture(renderer, background -> backgroundId);
+    loadBackgroundTexture(renderer, background->backgroundId);
     renderBackground(renderer, background);
     updatePosBackground(background);
 }

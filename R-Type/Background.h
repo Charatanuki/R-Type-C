@@ -15,4 +15,3 @@ typedef struct {
 
 void initBackground(Background* background, int backgroundId);
 void handleBackground(SDL_Renderer* renderer, Background* background);
-void initBackground(Background* background, int backgroundId);

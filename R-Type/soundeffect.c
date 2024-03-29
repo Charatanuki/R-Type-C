@@ -1,10 +1,5 @@
-#include <SDL.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL_mixer.h>
 #include "soundeffect.h"
-#include "audio.h"
-#include "option.h"
+
 
 //Permet de manipuler les sounds effects
 Mix_Chunk* boom = NULL; //explosion

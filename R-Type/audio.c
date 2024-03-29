@@ -25,6 +25,10 @@ void playbgmusic(Option option) {
     }
 }
 
+void stopbgmusic() {
+    Mix_HaltMusic();
+}
+
 void cleanupAudio() {
     Mix_FreeChunk(music);
     Mix_CloseAudio();

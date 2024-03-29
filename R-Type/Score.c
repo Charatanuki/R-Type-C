@@ -2,7 +2,7 @@
 #include <SDL_ttf.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include "HeaderFunction.h"
+#include "PlayerValues.h"
 #include "ScoreValues.h"
 
 

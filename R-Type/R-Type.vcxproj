@@ -115,6 +115,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +142,10 @@
   <ItemGroup>
     <ClCompile Include="AttackFunctions.h" />
     <ClCompile Include="audio.c" />
+    <ClCompile Include="endScreen.c" />
     <ClCompile Include="ennemis.c" />
+    <ClCompile Include="Explosion.c" />
+    <ClCompile Include="ExTextureManager.c" />
     <ClCompile Include="Init.C" />
     <ClCompile Include="InitLoop.c" />
     <ClCompile Include="InitPlayer.c" />
@@ -152,6 +156,7 @@
     <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="menu.c" />
+    <ClCompile Include="MenuSelect.c" />
     <ClCompile Include="option.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
@@ -161,11 +166,16 @@
   <ItemGroup>
     <ClInclude Include="audio.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="endScreen.h" />
     <ClInclude Include="ennemis.h" />
+    <ClInclude Include="Explosion.h" />
+    <ClInclude Include="ExTextureManager.h" />
     <ClInclude Include="HeaderFunction.h" />
     <ClInclude Include="isAlive.h" />
+    <ClInclude Include="Loop.h" />
     <ClInclude Include="LoopInitFunc.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="MenuSelect.h" />
     <ClInclude Include="option.h" />
     <ClInclude Include="PlayerScoreValues.h" />
     <ClInclude Include="PlayerValues.h" />

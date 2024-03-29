@@ -61,7 +61,7 @@ void handlePlayer(SDL_Renderer* renderer, Player *player) {
 void playerHurt(Player *player) {
     player->pX = 250;
     player->pY = 250;
-    P1_Health -= 1;
+    player->health -= 1;
     player->immortal = 1;
     player->hurtTime = SDL_GetTicks();
 }

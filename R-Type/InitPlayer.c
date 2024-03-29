@@ -1,6 +1,5 @@
 #include "PlayerValues.h"
 
-
 void initPlayer(Player* player)
 {
     player->pX = 250;

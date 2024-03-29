@@ -9,4 +9,5 @@
 void initAudio();
 void loadbgmusic();
 void playbgmusic(Option option);
+void stopbgmusic();
 void cleanupAudio();

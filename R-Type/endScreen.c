@@ -44,7 +44,7 @@ bool isInsideButtonEnd(SDL_Rect btnRect, int x, int y) {
 
 void initEndTextures(SDL_Renderer* renderer) {
     // Charge les images du fond et du bouton "Start"
-    BgTexture = loadTexture(renderer, "./Endgame_bg.png");
+    BgTexture = loadTexture(renderer, "./Endgame_bg_box.png");
     StartBtnTexture = loadTexture(renderer, "./btn/play_again_btn.png");
     QuitBtnTexture = loadTexture(renderer, "./btn/quit_btn.png");
 }

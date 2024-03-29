@@ -1,5 +1,7 @@
 #include "Loop.h"
 
+unsigned int lastEnemyTime;
+unsigned int lastFiredFrame;
 
 int mainLoop(SDL_Renderer* renderer, Option option) {
     Enemy enemies[MAX_ENEMIES];
@@ -7,15 +9,15 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
     Player player;
     Background background;
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
+    initValues();
 
 
-    unsigned int lastEnemyTime = SDL_GetTicks();
-    unsigned int lastFiredFrame = 0;
-
-    initializeGameObjects(enemies, &numEnemies, &player, &background, option, renderer);
+    initializeGameObjects(enemies, &numEnemies, &player, &background, 
+        option, renderer, 1);
     while (isAliveCheck(&player)) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
+
         updateExplosions();
         handleEnemySpawn(&lastEnemyTime, &numEnemies, enemies);
         handlePlayerFire(&player, &lastFiredFrame, option);
@@ -24,10 +26,21 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
         scoreDisplay(font, renderer, player);
         renderExplosions(renderer);
         renderGameObjects(renderer);
+
         SDL_Delay(10);
     }
     freeExplosionTexture();
     Mix_Pause(-1);
 
     return ENDSCREEN;
+}
+
+
+initValues() {
+
+    level = 1;
+    P1_Score = 0;
+
+    lastEnemyTime = SDL_GetTicks();
+    lastFiredFrame = 0;
 }

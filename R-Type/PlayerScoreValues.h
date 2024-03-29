@@ -3,3 +3,4 @@
 
 
 extern int P1_Score;
+extern int level;

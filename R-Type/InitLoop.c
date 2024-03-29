@@ -15,7 +15,7 @@ int newSpeed = 1;
 int enemeyHealth = 1;
 
 void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, 
-    Background* background, Option option, SDL_Renderer* renderer) {
+    Background* background, Option option, SDL_Renderer* renderer, int eHealth) {
     initializeExplosionTexture(renderer);
     initializeExplosions();
     playbgmusic(option);
@@ -23,7 +23,7 @@ void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player,
     initializeProjectiles();
     srand(time(NULL));
     *numEnemies = 20;
-    initEnemies(enemies, *numEnemies, 800, 500, newSpeed, enemeyHealth);
+    initEnemies(enemies, *numEnemies, 800, 500, newSpeed, eHealth);
     initPlayer(player);
 }
 

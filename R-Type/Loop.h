@@ -11,6 +11,7 @@
 #include "Explosion.h"
 #include "ExTextureManager.h"
 #include "audio.h"
+#include "PlayerScoreValues.h"
 
 int mainLoop(SDL_Renderer* renderer, Option option);
 

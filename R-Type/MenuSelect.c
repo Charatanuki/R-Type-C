@@ -1,4 +1,5 @@
 #include "menuSelect.h"
+#include <SDL_ttf.h>
 
 void selectMenu(SDL_Renderer* renderer) {
     int gameState = handleMainMenu(renderer);
@@ -18,7 +19,12 @@ void selectMenu(SDL_Renderer* renderer) {
             gameState = handleMainMenu(renderer);
             break;
         case ENDSCREEN:
-            gameState = handleEnd(renderer);
+            TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
+            if (font == NULL) {
+                printf("Error loading font for end screen");
+                return -1;
+            }
+            gameState = handleEnd(renderer, font);
             break;
         default:
             break;

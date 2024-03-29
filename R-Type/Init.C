@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <stdio.h>
 #include "HeaderFunction.h"
 #include "menu.h"
@@ -32,7 +33,8 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
             passes = 1;
         }
         else {
-            menuCheck = endMenu(renderer);
+            TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
+            menuCheck = endMenu(renderer, font);
         }
     }
 

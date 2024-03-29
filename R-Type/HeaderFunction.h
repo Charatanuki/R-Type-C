@@ -35,3 +35,4 @@ void initBackground(Background* background, int backgroundId);
 // Menu
 int handleMainMenu(SDL_Renderer* renderer);
 int handleEnd(SDL_Renderer* renderer);
+int endScoreDisplay(TTF_Font* font, SDL_Renderer* renderer);

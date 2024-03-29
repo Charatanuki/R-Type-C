@@ -190,11 +190,6 @@
     <Font Include="sans.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="bg\bg0.png" />
-    <Image Include="bg\bg1.png" />
-    <Image Include="bg\bg2.png" />
-    <Image Include="bg\bg3.png" />
-    <Image Include="bg\bg4.png" />
     <Image Include="ennemy.png" />
     <Image Include="spaceship.png" />
   </ItemGroup>

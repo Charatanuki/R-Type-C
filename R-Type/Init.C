@@ -46,11 +46,13 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path) {
     // Create texture from surface
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if (texture == NULL) {
-        printf("Failed to create texture from %s surface: %s\n", path, SDL_GetError());
+        printf("Failed to create texture from %s surface: %s\n", 
+            path, SDL_GetError());
         return NULL;
         // Handle error
     }
-    SDL_FreeSurface(surface); // Free the surface once the texture is created
+    SDL_FreeSurface(surface); 
+    // Free the surface once the texture is created
     return texture;
 }
 

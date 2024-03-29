@@ -11,7 +11,7 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
     initValues();
 
-    initializeGameObjects(enemies, &numEnemies, &player, &background, 
+    initializeGameObjects(enemies, &numEnemies, &player, &background,
         option, renderer, 1);
     while (isAliveCheck(&player)) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);

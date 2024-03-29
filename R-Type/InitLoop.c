@@ -16,7 +16,8 @@ int newSpeed = 1;
 int enemeyHealth = 1;
 
 void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, 
-    Background* background, Option option, SDL_Renderer* renderer, int eHealth) {
+    Background* background, Option option, 
+    SDL_Renderer* renderer, int eHealth) {
     loadPlayerTextures(renderer);
     initializeExplosionTexture(renderer);
     initializeExplosions();
@@ -45,7 +46,8 @@ void handleEnemySpawn(unsigned int* lastEnemyTime,
     }
 }
 
-void handlePlayerFire(Player* player, unsigned int* lastFiredFrame, Option option) {
+void handlePlayerFire(Player* player, 
+    unsigned int* lastFiredFrame, Option option) {
     unsigned int currentTime = SDL_GetTicks();
     if (isFiring == 1 && (currentTime - *lastFiredFrame) >= FIRE_COOLDOWN) {
         fireProjectile(player->pX + player->pSize, 

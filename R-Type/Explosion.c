@@ -47,7 +47,8 @@ void renderExplosions(SDL_Renderer* renderer) {
                 explosions[i].y, EXPLOSION_WIDTH, EXPLOSION_HEIGHT };
             SDL_Rect srcRect = { explosions[i].frame * FRAME_WIDTH, 
                 0, FRAME_WIDTH, FRAME_HEIGHT };
-            SDL_RenderCopy(renderer, explosionTexture, &srcRect, &explosionRect);
+            SDL_RenderCopy(renderer, explosionTexture, 
+                &srcRect, &explosionRect);
         }
     }
 }

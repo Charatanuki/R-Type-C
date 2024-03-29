@@ -48,13 +48,15 @@ void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //affi
     SDL_Texture* enemyTexture = loadTexture(renderer, "./ennemy.png");
     for (int i = 0; i < numEnemies; ++i) {
         if (enemies[i].active) {
-            SDL_Rect enemyRect = { enemies[i].position.x, enemies[i].position.y, 
+            SDL_Rect enemyRect = { enemies[i].position.x, 
+                enemies[i].position.y, 
                 enemies[i].position.w, enemies[i].position.h };
             if (enemyTexture != NULL) {
                 SDL_RenderCopy(renderer, enemyTexture, NULL, &enemyRect);
             }
             else {
-                SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+                SDL_SetRenderDrawColor(renderer, 
+                    255, 255, 255, SDL_ALPHA_OPAQUE);
                 SDL_RenderFillRect(renderer, &enemyRect);
             }
         }
@@ -67,11 +69,14 @@ void attackPlayer(Enemy enemies[], Player *player, int numEnemies) {
         for (int i = 0; i < numEnemies; i++) {
             if (enemies[i].active) {
                 if (enemies[i].active &&
-                    player->pX <= enemies[i].position.x + enemies[i].position.w / 2
-                    && player->pX >= enemies[i].position.x - enemies[i].position.w / 2
-
-                    && player->pY <= enemies[i].position.y + enemies[i].position.h &&
-                    player->pY >= enemies[i].position.y - enemies[i].position.h) {
+                    player->pX <= enemies[i].position.x +
+                    enemies[i].position.w / 2
+                    && player->pX >= enemies[i].position.x -
+                    enemies[i].position.w / 2
+                    && player->pY <= enemies[i].position.y +
+                    enemies[i].position.h &&
+                    player->pY >= enemies[i].position.y -
+                    enemies[i].position.h) {
                     enemies[i].active = 0;
                     printf("player got hurt\n");
                     playerHurt(player);

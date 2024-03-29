@@ -12,7 +12,8 @@ SDL_Texture* loadExplosionTexture(SDL_Renderer* renderer) {
     }
 
     // Set color key for transparency (optional)
-    SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGB(surface->format, 255, 0, 255));
+    SDL_SetColorKey(surface, SDL_TRUE, 
+        SDL_MapRGB(surface->format, 255, 0, 255));
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface); // Free the surface as it's no longer needed

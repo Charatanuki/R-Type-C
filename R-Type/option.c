@@ -48,10 +48,6 @@ void setting(SDL_Renderer* renderer, Option *option) {
     SDL_RenderPresent(renderer);
 }
 
-
-
-
-
 int mouseClickOption(SDL_Event event, Option *option) {
     if (event.button.button == SDL_BUTTON_LEFT) {
         int x = event.button.x;

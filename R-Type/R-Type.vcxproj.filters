@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Player">
+      <UniqueIdentifier>{394462c4-9ddc-4636-a9d4-5c02a6a25ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemies">
+      <UniqueIdentifier>{12fce85e-2657-419d-9160-ddfa5a01e61e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Levels">
+      <UniqueIdentifier>{1e68b1f7-faaf-40a6-9014-1ade660b9b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\System">
+      <UniqueIdentifier>{4d24caa1-fe23-4cf1-b958-32c5f2157fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\bg">
+      <UniqueIdentifier>{de2bb4f0-e67c-4322-bd93-195d4f251eda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{26229cf2-bdb2-4833-9c8f-7060a76295e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main functions">
+      <UniqueIdentifier>{43a5bd87-5fc8-4030-a6ed-83cd1efd0ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemy">
+      <UniqueIdentifier>{39b66216-6fc8-47e4-a9fe-1c2c3830138f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System">
+      <UniqueIdentifier>{7563c049-6867-4bad-a513-d326e9ccc745}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AttackFunctions.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.c">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPlayer.c">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="InputPlayer.c">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="InitLoop.c">
+      <Filter>Source Files\Main functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Loop.c">
+      <Filter>Source Files\Main functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.c">
+      <Filter>Source Files\Main functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Init.C">
+      <Filter>Source Files\Main functions</Filter>
+    </ClCompile>
+    <ClCompile Include="ennemis.c">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="audio.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="soundeffect.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PlayerScoreValues.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerValues.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreValues.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ennemis.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFunction.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopInitFunc.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="soundeffect.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="ValuesHeader.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="spaceship.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ennemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bg\bg0.png">
+      <Filter>Resource Files\bg</Filter>
+    </Image>
+    <Image Include="bg\bg4.png">
+      <Filter>Resource Files\bg</Filter>
+    </Image>
+    <Image Include="bg\bg1.png">
+      <Filter>Resource Files\bg</Filter>
+    </Image>
+    <Image Include="bg\bg2.png">
+      <Filter>Resource Files\bg</Filter>
+    </Image>
+    <Image Include="bg\bg3.png">
+      <Filter>Resource Files\bg</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="sans.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
+</Project>

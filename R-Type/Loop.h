@@ -1,5 +1,4 @@
-#ifndef LOOP_H
-#define LOOP_H
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,5 +14,4 @@
 
 int mainLoop(SDL_Renderer* renderer, Option option);
 
-#endif // !LOOP_H
 

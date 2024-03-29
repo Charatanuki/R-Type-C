@@ -8,12 +8,11 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
     Background background;
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
 
-    initializeExplosionTexture(renderer);
-    initializeExplosions();
+
     unsigned int lastEnemyTime = SDL_GetTicks();
     unsigned int lastFiredFrame = 0;
 
-    initializeGameObjects(enemies, &numEnemies, &player, &background, option);
+    initializeGameObjects(enemies, &numEnemies, &player, &background, option, renderer);
     while (isAliveCheck(&player)) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);

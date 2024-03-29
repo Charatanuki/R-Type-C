@@ -6,13 +6,18 @@
 #include "ennemis.h"
 #include "AttackFunctions.h"
 #include "audio.h"
+#include "Explosion.h"
+#include "ExTextureManager.h"
 
 #define FIRE_COOLDOWN 100
 
 int newSpeed = 1;
 int enemeyHealth = 1;
 
-void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, Background* background, Option option) {
+void initializeGameObjects(Enemy enemies[], int* numEnemies, Player* player, 
+    Background* background, Option option, SDL_Renderer* renderer) {
+    initializeExplosionTexture(renderer);
+    initializeExplosions();
     playbgmusic(option);
     initBackground(background, 0);
     initializeProjectiles();

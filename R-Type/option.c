@@ -20,7 +20,9 @@ char* getPath(int optionType, int value) {
 void setting(SDL_Renderer* renderer, Option *option) {
     SFXTexture = loadTexture(renderer, getPath(1, option->soundVolume));
     musicTexture = loadTexture(renderer, getPath(0, option->musicVolume));
-	SDL_RenderCopy(renderer, SFXTexture, NULL, NULL);
+
+	SDL_RenderCopy(renderer, SettingBgTexture, NULL, NULL);
+
     // Affiche le bouton "Music" au milieu de l'écran
     SDL_Rect musicRect;
     SDL_QueryTexture(musicTexture, NULL, NULL, &musicRect.w, &musicRect.h);
@@ -80,6 +82,7 @@ int mouseClickOption(SDL_Event event, Option *option) {
 }
 
 int handleOptionMenu(SDL_Renderer* renderer, Option *option) {
+    SettingBgTexture = loadTexture(renderer, "./settings_screen.png");
     SFXTexture = loadTexture(renderer, getPath(1, option->soundVolume));
     musicTexture = loadTexture(renderer, getPath(0, option->musicVolume));
     returnTexture = loadTexture(renderer, "./btn/quit_btn.png"); // à changer par un bouton retour

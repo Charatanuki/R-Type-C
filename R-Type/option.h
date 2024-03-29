@@ -12,6 +12,7 @@ typedef struct {
 	int soundVolume;
 } Option;
 
+SDL_Texture* SettingBgTexture;
 SDL_Texture* SFXTexture;
 SDL_Texture* musicTexture;
 SDL_Texture* returnTexture;

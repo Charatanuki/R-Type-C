@@ -85,7 +85,7 @@ int handleOptionMenu(SDL_Renderer* renderer, Option *option) {
     SettingBgTexture = loadTexture(renderer, "./settings_screen.png");
     SFXTexture = loadTexture(renderer, getPath(1, option->soundVolume));
     musicTexture = loadTexture(renderer, getPath(0, option->musicVolume));
-    returnTexture = loadTexture(renderer, "./btn/quit_btn.png"); // à changer par un bouton retour
+    returnTexture = loadTexture(renderer, "./btn/menu_btn.png"); // à changer par un bouton retour
 
     if (!SFXTexture || !musicTexture || !returnTexture) {
         printf("Erreur lors du chargement des images du menu principal.\n");

@@ -6,6 +6,7 @@
 
 //Permet de manipuler la musique
 Mix_Chunk* music = NULL;
+int musicPlaying = 0;
 
 //msg d'erreur pour l'init de l'audio
 void initAudio() {
@@ -23,9 +24,10 @@ void loadbgmusic() {
 }
 
 void playbgmusic() {
-    if (music != NULL) {
+    if (music != NULL && musicPlaying == 0) {
         Mix_VolumeChunk(music, 32);
         Mix_PlayChannel(-1, music, -1);
+        musicPlaying = 1;
     }
 }
 

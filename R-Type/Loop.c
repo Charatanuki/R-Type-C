@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_audio.h>
 #include "HeaderFunction.h"
 #include "Projectile.h"
 #include "PlayerValues.h"
@@ -12,6 +13,7 @@
 #include "menu.h"
 #include "Explosion.h"
 #include "ExTextureManager.h"
+#include "audio.h"
 
 
 void mainLoop(SDL_Renderer* renderer) {
@@ -21,6 +23,7 @@ void mainLoop(SDL_Renderer* renderer) {
     Background background;
     TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
     isAlive = true;
+    P1_Health = 3;
 
     initializeExplosionTexture(renderer);
     initializeExplosions();
@@ -49,4 +52,5 @@ void mainLoop(SDL_Renderer* renderer) {
         }
     }
     freeExplosionTexture();
+    stopbgmusic();
 }

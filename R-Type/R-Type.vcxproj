@@ -153,6 +153,7 @@
     <ClCompile Include="Loop.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="menu.c" />
+    <ClCompile Include="MenuSelect.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />
     <ClCompile Include="Score.c" />

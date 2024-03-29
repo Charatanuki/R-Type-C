@@ -22,17 +22,20 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
         SDL_Quit();
         return NULL;
     }
-    int menuResult = handleMainMenu(renderer);
-    switch (menuResult)
-    {
-    case PLAY:
-        mainLoop(renderer);
-        break;
-    case OPTION:
-        break;
-    default:
-        break;
+
+    int menuCheck = 1;
+    int passes = 0;
+
+    while (menuCheck == 1) {
+        if (passes == 0) {
+            menuCheck = titleMenu(renderer);
+        }
+        else {
+            menuCheck = titleMenu(renderer);
+        }
     }
+
+
     return renderer;
 }
 

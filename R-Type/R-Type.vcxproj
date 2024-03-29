@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="AttackFunctions.h" />
     <ClCompile Include="audio.c" />
+    <ClCompile Include="endScreen.c" />
     <ClCompile Include="ennemis.c" />
     <ClCompile Include="Explosion.c" />
     <ClCompile Include="ExTextureManager.c" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="audio.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="endScreen.h" />
     <ClInclude Include="ennemis.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="ExTextureManager.h" />

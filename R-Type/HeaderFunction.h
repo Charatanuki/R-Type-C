@@ -11,6 +11,7 @@ SDL_Renderer* createRenderer(SDL_Window* window);
 void freeAll(SDL_Window* window, SDL_Renderer* renderer);
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
 int titleMenu(SDL_Renderer* renderer);
+int endMenu(SDL_Renderer* renderer);
 
 
 
@@ -33,3 +34,4 @@ void initBackground(Background* background, int backgroundId);
 
 // Menu
 int handleMainMenu(SDL_Renderer* renderer);
+int handleEnd(SDL_Renderer* renderer);

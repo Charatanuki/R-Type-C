@@ -29,12 +29,12 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
     while (menuCheck == 1) {
         if (passes == 0) {
             menuCheck = titleMenu(renderer);
+            passes = 1;
         }
         else {
-            menuCheck = titleMenu(renderer);
+            menuCheck = endMenu(renderer);
         }
     }
-
 
     return renderer;
 }

@@ -53,7 +53,7 @@ int mouseClickEnd(SDL_Event event, bool running) {
         SDL_Rect quitBtnRect;
         SDL_QueryTexture(QuitBtnTexture, NULL, NULL, &quitBtnRect.w, &quitBtnRect.h);
         quitBtnRect.x = (800 - quitBtnRect.w) / 2;
-        quitBtnRect.y = (600 - quitBtnRect.h) / 1.5;
+        quitBtnRect.y = (600 - quitBtnRect.h) / 2.25;
         SDL_Rect optionBtnRect;
 
         if (isInsideButtonEnd(startBtnRect, x, y)) {

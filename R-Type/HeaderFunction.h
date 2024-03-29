@@ -26,6 +26,7 @@ void levelChange(int* numEnemies, Enemy enemies[], Background* background);
 // Menu
 int handleMainMenu(SDL_Renderer* renderer);
 int handleEnd(SDL_Renderer* renderer);
+int endScoreDisplay(TTF_Font* font, SDL_Renderer* renderer);
 #endif // !HEADERFUNCTION_H
 
 

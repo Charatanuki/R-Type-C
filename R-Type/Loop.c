@@ -8,7 +8,7 @@ int mainLoop(SDL_Renderer* renderer, Option option) {
     int numEnemies;
     Player player;
     Background background;
-    TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
+    TTF_Font* font = TTF_OpenFont("./fonts/sans.ttf", 24);
     initValues();
 
     initializeGameObjects(enemies, &numEnemies, &player, &background,

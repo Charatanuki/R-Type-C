@@ -5,7 +5,7 @@
 SDL_Texture* explosionTexture;
 
 SDL_Texture* loadExplosionTexture(SDL_Renderer* renderer) {
-    SDL_Surface* surface = IMG_Load("explosion.png"); // Replace with actual path
+    SDL_Surface* surface = IMG_Load("./images/explosions/explosion.png"); // Replace with actual path
     if (!surface) {
         printf("Failed to load explosion texture: %s\n", IMG_GetError());
         return NULL;

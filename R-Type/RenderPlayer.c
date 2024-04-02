@@ -7,8 +7,8 @@
 #include "PTextureManager.h"
 
 int P1_Health = 3;
-char spaceship[64] = "./spaceship.png";
-char invisinsibility[64] = "./Shield-ship.png";
+char spaceship[64] = "./images/ships/spaceship.png";
+char invisinsibility[64] = "./images/ships/Shield-ship.png";
 
 
 

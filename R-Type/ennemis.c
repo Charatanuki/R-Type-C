@@ -45,7 +45,7 @@ void moveEnemies(Enemy enemies[], int numEnemies) //mouv des ennmies actifs
 
 void drawEnemies(Enemy enemies[], int numEnemies, SDL_Renderer* renderer) //affiche les ennemy actifs
 {
-    SDL_Texture* enemyTexture = loadTexture(renderer, "./ennemy.png");
+    SDL_Texture* enemyTexture = loadTexture(renderer, "./images/ships/ennemy.png");
     for (int i = 0; i < numEnemies; ++i) {
         if (enemies[i].active) {
             SDL_Rect enemyRect = { enemies[i].position.x, 

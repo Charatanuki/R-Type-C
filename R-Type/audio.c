@@ -13,7 +13,7 @@ void initAudio() {
 }
 
 void loadbgmusic() {
-    music = Mix_LoadWAV("./music.wav");
+    music = Mix_LoadWAV("./music/music.wav");
     if (music == NULL) {
         printf("Failed to load background musicSDL_mixer Error: %s\n", 
             Mix_GetError());

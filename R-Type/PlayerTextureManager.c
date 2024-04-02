@@ -8,10 +8,10 @@ SDL_Texture* playerTextureInvincible;
 SDL_Texture* loadPlayerTexture(SDL_Renderer* renderer, int type) {
     SDL_Surface* normalSurface;
     if (type == 0) {
-        normalSurface = IMG_Load("./spaceship.png"); // Remove SDL_Surface* 
+        normalSurface = IMG_Load("./images/ships/spaceship.png"); // Remove SDL_Surface* 
     }
     else {
-        normalSurface = IMG_Load("./Shield-ship.png"); // Remove SDL_Surface* 
+        normalSurface = IMG_Load("./images/ships/Shield-ship.png"); // Remove SDL_Surface* 
     }
     if (!normalSurface) { // Remove & from normalSurface
         printf("Failed to load normal player texture: %s\n", IMG_GetError());

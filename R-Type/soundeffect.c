@@ -7,7 +7,7 @@ Mix_Chunk* pew = NULL; //tirs
 
 
 void loadshootsound() {
-    pew = Mix_LoadWAV("./pew.wav");
+    pew = Mix_LoadWAV("./sfx/pew.wav");
     if (pew == NULL) {
         printf("Failed to load shoot sound! SDL_mixer Error: %s\n", 
             Mix_GetError());
@@ -23,7 +23,7 @@ void playshootsound(Option option) {
 }
 
 void loaddestroysound() {
-    boom = Mix_LoadWAV("./boom.wav");
+    boom = Mix_LoadWAV("./sfx/boom.wav");
     if (boom == NULL) {
         printf("Failed to load enemy destroy sound! SDL_mixer Error: %s\n", 
             Mix_GetError());

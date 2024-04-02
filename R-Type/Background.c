@@ -25,7 +25,7 @@ void loadBackgroundTexture(SDL_Renderer* renderer, int backgroundId) {
 
         char bgPath[64];
 
-        sprintf_s(bgPath, sizeof(bgPath), "./bg/bg%d.png", backgroundId);
+        sprintf_s(bgPath, sizeof(bgPath), "./images/bg/bg%d.png", backgroundId);
         currentBackgroundId = backgroundId;
         currentBackgroundTexture = loadTexture(renderer, bgPath);
     }

@@ -19,7 +19,7 @@ void selectMenu(SDL_Renderer* renderer) {
             gameState = handleMainMenu(renderer);
             break;
         case ENDSCREEN:
-            TTF_Font* font = TTF_OpenFont("sans.ttf", 24);
+            TTF_Font* font = TTF_OpenFont("./fonts/sans.ttf", 24);
             if (font == NULL) {
                 printf("Error loading font for end screen");
                 return -1;

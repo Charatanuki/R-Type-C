@@ -9,12 +9,12 @@ void initOption(Option* option)
 char* getPath(int optionType, int value) {
     if (optionType == 0) {
         if (value == 0)
-            return "./btn/Music_OFF_btn.png";
-        return "./btn/Music_ON_btn.png";
+            return "./images/btn/Music_OFF_btn.png";
+        return "./images/btn/Music_ON_btn.png";
     }
     if (value == 0)
-        return "./btn/SFX_OFF_btn.png";
-    return "./btn/SFX_ON_btn.png";
+        return "./images/btn/SFX_OFF_btn.png";
+    return "./images/btn/SFX_ON_btn.png";
 }
 
 void setting(SDL_Renderer* renderer, Option *option) {
@@ -80,10 +80,10 @@ int mouseClickOption(SDL_Event event, Option *option) {
 }
 
 int handleOptionMenu(SDL_Renderer* renderer, Option *option) {
-    SettingBgTexture = loadTexture(renderer, "./settings_screen.png");
+    SettingBgTexture = loadTexture(renderer, "./images/bg/menus/settings_screen.png");
     SFXTexture = loadTexture(renderer, getPath(1, option->soundVolume));
     musicTexture = loadTexture(renderer, getPath(0, option->musicVolume));
-    returnTexture = loadTexture(renderer, "./btn/menu_btn.png"); 
+    returnTexture = loadTexture(renderer, "./images/btn/menu_btn.png"); 
 
     if (!SFXTexture || !musicTexture || !returnTexture) {
         printf("Erreur lors du chargement des images du menu principal.\n");

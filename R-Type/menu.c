@@ -39,10 +39,10 @@ bool isInsideButton(SDL_Rect btnRect, int x, int y) {
 
 void initMenuTextures(SDL_Renderer* renderer) {
     // Charge les images du fond et du bouton "Start"
-    BgTexture = loadTexture(renderer, "./menu_screen.png");
-    StartBtnTexture = loadTexture(renderer, "./btn/play_btn.png");
-    OptionBtnTexture = loadTexture(renderer, "./btn/settings_btn.png");
-    QuitBtnTexture = loadTexture(renderer, "./btn/quit_btn.png");
+    BgTexture = loadTexture(renderer, "./images/bg/menus/menu_screen.png");
+    StartBtnTexture = loadTexture(renderer, "./images/btn/play_btn.png");
+    OptionBtnTexture = loadTexture(renderer, "./images/btn/settings_btn.png");
+    QuitBtnTexture = loadTexture(renderer, "./images/btn/quit_btn.png");
 }
 
 int mouseClick(SDL_Event event, bool running) {

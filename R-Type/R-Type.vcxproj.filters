@@ -123,6 +123,9 @@
     <ClCompile Include="VolumeOption.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
+    <ClCompile Include="OptionImgPath.c">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerScoreValues.h">

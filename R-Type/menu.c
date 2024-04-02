@@ -104,5 +104,5 @@ int handleMainMenu(SDL_Renderer* renderer) {
             }
         }
     }
-    return 0;
+    return QUIT;
 }

@@ -21,3 +21,6 @@ int handleOptionMenu(SDL_Renderer* renderer, Option* option);
 
 int musicVolumeOpt(Option* option);
 int soundVolumeOpt(Option* option);
+
+char* getPath(int optionType, int value);
+void destroyOptText();

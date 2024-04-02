@@ -2,12 +2,12 @@
 
 unsigned int lastEnemyTime;
 unsigned int lastFiredFrame;
+Enemy enemies[MAX_ENEMIES];
+int numEnemies;
+Player player;
+Background background;
 
 int mainLoop(SDL_Renderer* renderer, Option option) {
-    Enemy enemies[MAX_ENEMIES];
-    int numEnemies;
-    Player player;
-    Background background;
     TTF_Font* font = TTF_OpenFont("./fonts/sans.ttf", 24);
     initValues();
 

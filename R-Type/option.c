@@ -6,15 +6,11 @@ void initOption(Option* option)
     option->soundVolume = 32;
 }
 
-char* getPath(int optionType, int value) {
-    if (optionType == 0) {
-        if (value == 0)
-            return "./images/btn/Music_OFF_btn.png";
-        return "./images/btn/Music_ON_btn.png";
-    }
-    if (value == 0)
-        return "./images/btn/SFX_OFF_btn.png";
-    return "./images/btn/SFX_ON_btn.png";
+void initOptionsTexture(SDL_Renderer* renderer, Option* option) {
+    SettingBgTexture = loadTexture(renderer, "./images/bg/menus/settings_screen.png");
+    SFXTexture = loadTexture(renderer, getPath(1, option->soundVolume));
+    musicTexture = loadTexture(renderer, getPath(0, option->musicVolume));
+    returnTexture = loadTexture(renderer, "./images/btn/menu_btn.png");
 }
 
 void setting(SDL_Renderer* renderer, Option *option) {
@@ -80,10 +76,7 @@ int mouseClickOption(SDL_Event event, Option *option) {
 }
 
 int handleOptionMenu(SDL_Renderer* renderer, Option *option) {
-    SettingBgTexture = loadTexture(renderer, "./images/bg/menus/settings_screen.png");
-    SFXTexture = loadTexture(renderer, getPath(1, option->soundVolume));
-    musicTexture = loadTexture(renderer, getPath(0, option->musicVolume));
-    returnTexture = loadTexture(renderer, "./images/btn/menu_btn.png"); 
+    initOptionsTexture(renderer, option);
 
     if (!SFXTexture || !musicTexture || !returnTexture) {
         printf("Erreur lors du chargement des images du menu principal.\n");
@@ -98,6 +91,7 @@ int handleOptionMenu(SDL_Renderer* renderer, Option *option) {
             setting(renderer, option);
             switch (event.type) {
             case SDL_QUIT:
+                clickResult = QUIT;
                 running = false;
                 break;
             case SDL_MOUSEBUTTONDOWN:
@@ -109,8 +103,6 @@ int handleOptionMenu(SDL_Renderer* renderer, Option *option) {
             }
         }
     }
-    SDL_DestroyTexture(SFXTexture);
-    SDL_DestroyTexture(musicTexture);
-    SDL_DestroyTexture(returnTexture);
+    destroyOptText();
     return clickResult;
 }

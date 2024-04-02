@@ -153,6 +153,7 @@
     <ClCompile Include="menu.c" />
     <ClCompile Include="MenuSelect.c" />
     <ClCompile Include="option.c" />
+    <ClCompile Include="OptionImgPath.c" />
     <ClCompile Include="PlayerTextureManager.c" />
     <ClCompile Include="Projectile.c" />
     <ClCompile Include="RenderPlayer.c" />

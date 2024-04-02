@@ -85,7 +85,7 @@ int handleEnd(SDL_Renderer* renderer, TTF_Font* font) {
             int clickResult = 0;
             switch (event.type) {
             case SDL_QUIT:
-                running = false;
+                clickResult = QUIT;
                 break;
             case SDL_MOUSEBUTTONDOWN:
                 clickResult = mouseClickEnd(event, &running);
